@@ -39,6 +39,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,13 +50,36 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Migrations\201810081737428_InitailModel.cs" />
+    <Compile Include="Migrations\201810081737428_InitailModel.Designer.cs">
+      <DependentUpon>201810081737428_InitailModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SmartAutomationDb.cs" />
+    <Compile Include="T_CM_Address_Book.cs" />
     <Compile Include="T_CM_Customers.cs" />
+    <Compile Include="T_MS_Brands.cs" />
+    <Compile Include="T_MS_City.cs" />
+    <Compile Include="T_MS_Country.cs" />
+    <Compile Include="T_MS_Coupon.cs" />
+    <Compile Include="T_MS_PaymentMode.cs" />
+    <Compile Include="T_MS_Products.cs" />
+    <Compile Include="T_MS_Product_Category.cs" />
+    <Compile Include="T_MS_ROLE.cs" />
+    <Compile Include="T_MS_State.cs" />
+    <Compile Include="T_MS_Suppliers.cs" />
+    <Compile Include="T_MS_Supplier_Products.cs" />
+    <Compile Include="T_MS_USER_ROLE.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201810081737428_InitailModel.resx">
+      <DependentUpon>201810081737428_InitailModel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
