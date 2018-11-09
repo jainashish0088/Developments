@@ -12,7 +12,7 @@ namespace SAEntities
     {
         [Key]
         public long Id { get; set; }
-        [ForeignKey("ProductCategory")]
+        [ForeignKey("Category")]
         public long ParentCategory { get; set; }
         [Required, MaxLength(2000)]
         public string Name { get; set; }
