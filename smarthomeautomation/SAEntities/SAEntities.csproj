@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D3660C31-A150-4F7F-A849-87CAFE2937E5}</ProjectGuid>
+    <ProjectGuid>{ED79238B-E7D1-4FE1-AB01-3ED49D4B3CB0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SAEntities</RootNamespace>
     <AssemblyName>SAEntities</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -39,8 +39,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,37 +47,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Migrations\201810081737428_InitailModel.cs" />
-    <Compile Include="Migrations\201810081737428_InitailModel.Designer.cs">
-      <DependentUpon>201810081737428_InitailModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="AddressBook.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="OrderDetail.cs" />
+    <Compile Include="Payment.cs" />
+    <Compile Include="PaymentDetail.cs" />
+    <Compile Include="PaymentMode.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="ProductCategory.cs" />
+    <Compile Include="ProductCategoryRel.cs" />
+    <Compile Include="ProductGallery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SmartAutomationDb.cs" />
-    <Compile Include="T_CM_Address_Book.cs" />
-    <Compile Include="T_CM_Customers.cs" />
-    <Compile Include="T_MS_Brands.cs" />
-    <Compile Include="T_MS_City.cs" />
-    <Compile Include="T_MS_Country.cs" />
-    <Compile Include="T_MS_Coupon.cs" />
-    <Compile Include="T_MS_PaymentMode.cs" />
-    <Compile Include="T_MS_Products.cs" />
-    <Compile Include="T_MS_Product_Category.cs" />
-    <Compile Include="T_MS_ROLE.cs" />
-    <Compile Include="T_MS_State.cs" />
-    <Compile Include="T_MS_Suppliers.cs" />
-    <Compile Include="T_MS_Supplier_Products.cs" />
-    <Compile Include="T_MS_USER_ROLE.cs" />
+    <Compile Include="ShoppingCart.cs" />
+    <Compile Include="ShoppingCartDetail.cs" />
+    <Compile Include="Supplier.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201810081737428_InitailModel.resx">
-      <DependentUpon>201810081737428_InitailModel.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
