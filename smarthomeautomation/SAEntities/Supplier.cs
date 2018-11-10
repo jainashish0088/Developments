@@ -17,9 +17,9 @@ namespace SAEntities
         [Required]
         public string CompanyName { get; set; }
         [Required, Index(IsUnique = true)]
-        public string CompanyEmailID { get; set; }
+        public string EmailID { get; set; }
         [Required, Index(IsUnique = true)]
-        public string CompanyContactNumber { get; set; }
+        public string ContactNumber { get; set; }
         public string CompanyFaxNumber { get; set; }
         public string GSTNumber { get; set; }
         public bool IsActive { get; set; }

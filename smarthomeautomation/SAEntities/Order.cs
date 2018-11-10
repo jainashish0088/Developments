@@ -18,7 +18,8 @@ namespace SAEntities
         public decimal TotalDiscount { get; set; }
         public decimal TotalTax { get; set; }
         public string OrderNumber { get; set; }
-        public int PayModeID { get; set; }
+        [ForeignKey("PaymentMode")]
+        public int PaymentModeId { get; set; }
         [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }

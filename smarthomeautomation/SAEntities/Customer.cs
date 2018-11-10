@@ -12,6 +12,8 @@ namespace SAEntities
     {
         [Key]
         public long Id { get; set; }
+        [ForeignKey("UserType")]
+        public int UserTypeId { get; set; }
         [MaxLength(200)]
         public string FirstName { get; set; }
         [MaxLength(200)]
@@ -32,5 +34,6 @@ namespace SAEntities
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public IList<AddressBook> AddressBooks { get; set; }
+        
     }
 }

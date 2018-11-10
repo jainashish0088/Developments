@@ -15,7 +15,10 @@ namespace SAEntities
         public long ShoppingCartId { get; set; }
         [ForeignKey("Product")]
         public long? ProductId { get; set; }
+        [MaxLength(1000)]
         public string ProductName { get; set; }
+        [MaxLength(200)]
+        public string ProductCode { get; set; }
         public decimal SellingPrice { get; set; }
         public decimal MRP { get; set; }
         public decimal Discount { get; set; }

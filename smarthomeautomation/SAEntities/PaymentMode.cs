@@ -11,7 +11,7 @@ namespace SAEntities
     public class PaymentMode
     {
         [Key]
-        public long Id { get; set; }
+        public int Id { get; set; }
         [MaxLength(200)]
         public string PayName { get; set; }
         [MaxLength(1000)]
