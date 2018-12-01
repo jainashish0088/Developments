@@ -14,8 +14,7 @@ namespace SAEntities
         public int Id { get; set; }
         [Required, MaxLength(200)]
         public string Name { get; set; }
-        [ForeignKey("Country")]
-        public int CountryId { get; set; }
+        
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
         [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]

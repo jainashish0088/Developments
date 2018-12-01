@@ -21,5 +21,6 @@ namespace SAEntities
         [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
+        public IList<Order> Orders { get; set; }
     }
 }

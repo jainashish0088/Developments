@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace SAEntities
 {
-    class SAContext:DbContext
+    class SAContext : DbContext
     {
-        protected SAContext()
+        public SAContext()
+            : base("name=SmartAutomationHomeDB")
         {
+
         }
 
         public DbSet<Product> Products { get; set; }
@@ -23,15 +25,15 @@ namespace SAEntities
         public DbSet<Payment> Payments { get; set; }
         public DbSet<PaymentDetail> PaymentDetails { get; set; }
         public DbSet<PaymentMode> PaymentModes { get; set; }
-        public DbSet<ProductCategory> ProductCategories { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<ProductCategoryRel> ProductCategoryRelations { get; set; }
+        public DbSet<ProductGallery> ProductGalleries { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
+        public DbSet<ShoppingCartDetail> ShoppingCartDetails { get; set; }
+        public DbSet<State> States { get; set; }
+        public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<UserRoleRel> UserRoleRelations { get; set; }
+        public DbSet<UserType> UserTypes { get; set; }
     }
 }

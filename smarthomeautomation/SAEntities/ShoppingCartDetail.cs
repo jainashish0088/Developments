@@ -10,11 +10,13 @@ namespace SAEntities
 {
     public class ShoppingCartDetail
     {
+        public ShoppingCartDetail()
+        {
+            this.Products = new HashSet<Product>();
+        }
         [Key]
         public long Id { get; set; }
         public long ShoppingCartId { get; set; }
-        [ForeignKey("Product")]
-        public long? ProductId { get; set; }
         [MaxLength(1000)]
         public string ProductName { get; set; }
         [MaxLength(200)]
@@ -28,6 +30,6 @@ namespace SAEntities
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public ShoppingCart ShoppingCart { get; set; }
-        public IList<Product> Products { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }

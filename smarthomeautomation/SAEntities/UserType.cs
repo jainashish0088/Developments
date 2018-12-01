@@ -20,5 +20,6 @@ namespace SAEntities
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public IList<Customer> Customers { get; set; }
+        public IList<UserRoleRel> UserRoleRel { get; set; }
     }
 }

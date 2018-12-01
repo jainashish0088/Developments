@@ -49,20 +49,30 @@
   <ItemGroup>
     <Compile Include="AddressBook.cs" />
     <Compile Include="Brand.cs" />
+    <Compile Include="Category.cs" />
     <Compile Include="City.cs" />
     <Compile Include="Country.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="Migrations\201812010333101_smarthomeautomation.cs" />
+    <Compile Include="Migrations\201812010333101_smarthomeautomation.Designer.cs">
+      <DependentUpon>201812010333101_smarthomeautomation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812010350487_ChangeSupplierCustomer.cs" />
+    <Compile Include="Migrations\201812010350487_ChangeSupplierCustomer.Designer.cs">
+      <DependentUpon>201812010350487_ChangeSupplierCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderDetail.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="PaymentDetail.cs" />
     <Compile Include="PaymentMode.cs" />
     <Compile Include="Product.cs" />
-    <Compile Include="ProductCategory.cs" />
     <Compile Include="ProductCategoryRel.cs" />
     <Compile Include="ProductGallery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs" />
+    <Compile Include="SAContext.cs" />
     <Compile Include="ShoppingCart.cs" />
     <Compile Include="ShoppingCartDetail.cs" />
     <Compile Include="State.cs" />
@@ -73,6 +83,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201812010333101_smarthomeautomation.resx">
+      <DependentUpon>201812010333101_smarthomeautomation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812010350487_ChangeSupplierCustomer.resx">
+      <DependentUpon>201812010350487_ChangeSupplierCustomer.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,12 +12,9 @@ namespace SAEntities
     {
         [Key]
        public int Id { get; set; }
-        [ForeignKey("Customer")]
-        public long? CustomerId { get; set; }
-        [ForeignKey("Role")]
-        public int RoleId { get; set; }
-        [ForeignKey("UserType")]
-        public int UserTypeId { get; set; }
+        public Customer Customer { get; set; }
+        public Role Role { get; set; }
+        public UserType UserType { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
         [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]

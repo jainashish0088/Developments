@@ -12,8 +12,7 @@ namespace SAEntities
     {
         [Key]
         public long Id { get; set; }
-        [ForeignKey("UserType")]
-        public int UserTypeId { get; set; }
+        
         [MaxLength(200)]
         public string FirstName { get; set; }
         [MaxLength(200)]
@@ -22,9 +21,11 @@ namespace SAEntities
         public string LastName { get; set; }
         public DateTime? DateofBirth { get; set; }
         [MaxLength(500)]
+        [Required]
         [Index(IsUnique = true)]
         public string EmailID { get; set; }
         [MaxLength(200)]
+        [Required]
         [Index(IsUnique = true)]
         public string MobileNo { get; set; }
         public bool IsActive { get; set; }
@@ -34,6 +35,10 @@ namespace SAEntities
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public IList<AddressBook> AddressBooks { get; set; }
-        
+        public Supplier Suppliers { get; set; }
+        public UserType UserTypes { get; set; }
+        public IList<Order> Orders { get; set; }
+        public IList<ShoppingCart> ShoppingCarts { get; set; }
+        public IList<UserRoleRel> UserRoleRels { get; set; }
     }
 }

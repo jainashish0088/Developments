@@ -12,8 +12,7 @@ namespace SAEntities
     {
         [Key]
         public long Id { get; set; }
-        [Required, ForeignKey("Customer")]
-        public long CustomerId { get; set; }
+        
         [Required, MaxLength(500)]
         public string Address1 { get; set; }
         [MaxLength(500)]
@@ -22,11 +21,11 @@ namespace SAEntities
         public string Address3 { get; set; }
         [Required, MaxLength(20)]
         public string PostCode { get; set; }
-        [Required, ForeignKey("City")]
-        public int CityID { get; set; }
+        
         [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public Customer Customer { get; set; }
+        public City Cities { get; set; }
     }
 }

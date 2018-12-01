@@ -10,18 +10,20 @@ namespace SAEntities
 {
     public class ProductCategoryRel
     {
+        public ProductCategoryRel()
+        {
+            this.Products = new HashSet<Product>();
+            this.Categories = new HashSet<Category>();
+        }
+
         [Key]
         public long Id { get; set; }
-        [Required, ForeignKey("Product")]
-        public long ProductID { get; set; }
-        [Required, ForeignKey("Category")]
-        public long CategoryID { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
         [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
-        public IList<Product> Products { get; set; }
-        public IList<Category> Categories { get; set; }
+        public ICollection<Product> Products { get; set; }
+        public ICollection<Category> Categories { get; set; }
     }
 }

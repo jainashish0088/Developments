@@ -12,12 +12,11 @@ namespace SAEntities
     {
         [Key]
         public long Id { get; set; }
-        [Required, ForeignKey("Order")]
-        public long OrderId { get; set; }
         public decimal Amount { get; set; }
         [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public IList<Order> Orders { get; set; }
+        public IList<PaymentDetail> PaymentDetails { get; set; }
     }
 }

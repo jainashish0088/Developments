@@ -12,12 +12,12 @@ namespace SAEntities
     {
         [Key]
         public long Id { get; set; }
-        [Required, ForeignKey("Customer")]
-        public long CustomerID { get; set; }
         [Required]
         public string CompanyName { get; set; }
+        [MaxLength(500)]
         [Required, Index(IsUnique = true)]
-        public string EmailID { get; set; }
+        public string EmailId { get; set; }
+        [MaxLength(200)]
         [Required, Index(IsUnique = true)]
         public string ContactNumber { get; set; }
         public string CompanyFaxNumber { get; set; }
@@ -28,6 +28,7 @@ namespace SAEntities
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public IList<Product> Products { get; set; }
+        public IList<Customer> Customers { get; set; }
 
     }
 }

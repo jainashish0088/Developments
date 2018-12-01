@@ -10,10 +10,14 @@ namespace SAEntities
 {
     public class Product
     {
+        public Product()
+        {
+            this.ProductCategoryRels = new HashSet<ProductCategoryRel>();
+            this.OrderDetails = new HashSet<OrderDetail>();
+            this.ShoppingCartDetails = new HashSet<ShoppingCartDetail>();
+        }
         [Key]
         public long Id { get; set; }
-        [Required, ForeignKey("Supplier")]
-        public long SupplierID { get; set; }
         [MaxLength(1000)]
         public string ProductName { get; set; }
         [MaxLength(200)]
@@ -36,7 +40,10 @@ namespace SAEntities
         public DateTime? UpdatedDate { get; set; }//save GMT Time 0
         public short ISDiscOnPercOrValue { get; set; } //default -1
         public IList<ProductGallery> ProductGalleries { get; set; }
-        public IList<ProductCategoryRel> ProductCategoryRels { get; set; }
+        public ICollection<ProductCategoryRel> ProductCategoryRels { get; set; }
+        public Supplier Supplier { get; set; }
         public Brand Brand { get; set; }
+        public ICollection<OrderDetail> OrderDetails { get; set; }
+        public ICollection<ShoppingCartDetail> ShoppingCartDetails { get; set; }
     }
 }

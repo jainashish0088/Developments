@@ -10,11 +10,14 @@ namespace SAEntities
 {
     public class OrderDetail
     {
+        public OrderDetail()
+        {
+            this.Products = new HashSet<Product>();
+        }
         [Key]
         public long Id { get; set; }
         public long OrderId { get; set; }
-        [ForeignKey("Product")]
-        public long? ProductId { get; set; }
+        public ICollection<Product> Products { get; set; }
         [MaxLength(1000)]
         public string ProductName { get; set; }
         [MaxLength(200)]
@@ -30,6 +33,7 @@ namespace SAEntities
         [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
+        public IList<PaymentDetail> PaymentDetails { get; set; }
 
     }
 }

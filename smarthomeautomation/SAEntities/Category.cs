@@ -10,10 +10,13 @@ namespace SAEntities
 {
     public class Category
     {
+        public Category()
+        {
+            this.ProductCategoryRels = new HashSet<ProductCategoryRel>();
+        }
         [Key]
         public long Id { get; set; }
-        [ForeignKey("Category")]
-        public long ParentCategory { get; set; }
+        public long? CategoryId { get; set; }
         [Required, MaxLength(2000)]
         public string Name { get; set; }
         [MaxLength(2000)]
@@ -37,6 +40,6 @@ namespace SAEntities
         [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
-        public IList<ProductCategoryRel> ProductCategoryRels { get; set; }
+        public ICollection<ProductCategoryRel> ProductCategoryRels { get; set; }
     }
 }

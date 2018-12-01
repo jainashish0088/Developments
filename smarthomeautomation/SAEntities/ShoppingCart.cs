@@ -12,8 +12,7 @@ namespace SAEntities
     {
         [Key]
         public long Id { get; set; }
-        [ForeignKey("Customer")]
-        public long CustomerId { get; set; }
+        public Customer Customer { get; set; }
         [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
