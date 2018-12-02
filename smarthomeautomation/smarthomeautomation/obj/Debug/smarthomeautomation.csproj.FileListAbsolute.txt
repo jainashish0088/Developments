@@ -101,3 +101,15 @@ D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\obj\Debu
 D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\obj\Debug\smarthomeautomation.dll
 D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\obj\Debug\smarthomeautomation.pdb
 D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\bin\SAEntities.dll.config
+D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\bin\Microsoft.Owin.Cors.dll
+D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\bin\Microsoft.Owin.dll
+D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\bin\Microsoft.Owin.Security.dll
+D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\bin\Owin.dll
+D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\bin\System.Web.Cors.dll
+D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\bin\Microsoft.Owin.xml
+D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\bin\Microsoft.Owin.Cors.xml
+D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\bin\Microsoft.Owin.Security.xml
+D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\bin\Microsoft.Owin.Security.OAuth.xml

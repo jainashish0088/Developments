@@ -20,7 +20,7 @@ namespace smarthomeautomation.App_Start
         public void Configuration(IAppBuilder app)
         {
             app.UseCors(CorsOptions.AllowAll);
-            var myProvider = new OAuthorizationServiceProvider.AuthorizationServerProvider();
+            var myProvider = new Microsoft.Owin.Security.OAuth.OAuthAuthorizationServerProvider();
             OAuthAuthorizationServerOptions options = new OAuthAuthorizationServerOptions
             {
                 AllowInsecureHttp = true,
