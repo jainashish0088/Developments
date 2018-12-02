@@ -1,0 +1,29 @@
+/* Demo Slides */
+
+#owl-example .item_group{
+	padding: 0px 0px;
+	margin: 3px;
+	color: #FFF;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	text-align: center;
+}
+#owl-example .item_group img{
+	width: auto;
+	margin: 0 auto;
+	display: block;
+}
+/*.item h1{
+	margin: inherit;
+}*/
+
+
+
+
+
+
+
+
+
+
