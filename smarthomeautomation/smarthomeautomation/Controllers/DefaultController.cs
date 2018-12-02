@@ -22,7 +22,7 @@ namespace smarthomeautomation.Controllers
         [Authorize(Roles = "Admin")]
         public IHttpActionResult AuthorizedUser(string user, string password)
         {
-            return Ok(userRoles.GetUserRoles());
+            return Ok("");
         }
     }
 }
