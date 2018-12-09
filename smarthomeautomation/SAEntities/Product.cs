@@ -12,7 +12,8 @@ namespace SAEntities
     {
         public Product()
         {
-            this.ProductCategoryRels = new HashSet<ProductCategoryRel>();
+            //this.ProductCategoryRels = new HashSet<ProductCategoryRel>();
+            this.Categories = new HashSet<Category>();
             this.OrderDetails = new HashSet<OrderDetail>();
             this.ShoppingCartDetails = new HashSet<ShoppingCartDetail>();
         }
@@ -40,7 +41,7 @@ namespace SAEntities
         public DateTime? UpdatedDate { get; set; }//save GMT Time 0
         public short ISDiscOnPercOrValue { get; set; } //default -1
         public IList<ProductGallery> ProductGalleries { get; set; }
-        public ICollection<ProductCategoryRel> ProductCategoryRels { get; set; }
+        public ICollection<Category> Categories { get; set; }
         public Supplier Supplier { get; set; }
         public Brand Brand { get; set; }
         public ICollection<OrderDetail> OrderDetails { get; set; }

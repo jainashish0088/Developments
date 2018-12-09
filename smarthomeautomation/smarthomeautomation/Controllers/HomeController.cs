@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SAEntities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,8 @@ namespace smarthomeautomation.Controllers
     {
         public ActionResult Index()
         {
+            DalProduct objDalProduct = new DalProduct();
+            objDalProduct.SelectProductList("Bed Room");
             return View();
         }
 

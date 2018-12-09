@@ -53,6 +53,7 @@
     <Compile Include="City.cs" />
     <Compile Include="Country.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="DalProduct.cs" />
     <Compile Include="Migrations\201812010333101_smarthomeautomation.cs" />
     <Compile Include="Migrations\201812010333101_smarthomeautomation.Designer.cs">
       <DependentUpon>201812010333101_smarthomeautomation.cs</DependentUpon>
@@ -61,6 +62,10 @@
     <Compile Include="Migrations\201812010350487_ChangeSupplierCustomer.Designer.cs">
       <DependentUpon>201812010350487_ChangeSupplierCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812091138310_createmanytomanyrelationbetweenproductandcategory.cs" />
+    <Compile Include="Migrations\201812091138310_createmanytomanyrelationbetweenproductandcategory.Designer.cs">
+      <DependentUpon>201812091138310_createmanytomanyrelationbetweenproductandcategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderDetail.cs" />
@@ -68,7 +73,6 @@
     <Compile Include="PaymentDetail.cs" />
     <Compile Include="PaymentMode.cs" />
     <Compile Include="Product.cs" />
-    <Compile Include="ProductCategoryRel.cs" />
     <Compile Include="ProductGallery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs" />
@@ -90,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812010350487_ChangeSupplierCustomer.resx">
       <DependentUpon>201812010350487_ChangeSupplierCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812091138310_createmanytomanyrelationbetweenproductandcategory.resx">
+      <DependentUpon>201812091138310_createmanytomanyrelationbetweenproductandcategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

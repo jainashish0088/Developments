@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SAEntities
 {
-    class SAContext : DbContext
+    public class SAContext : DbContext
     {
         public SAContext()
             : base("name=SmartAutomationHomeDB")
@@ -15,25 +15,32 @@ namespace SAEntities
 
         }
 
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Brand> Brands { get; set; }
-        public DbSet<City> Cities { get; set; }
-        public DbSet<Country> Countries { get; set; }
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderDetail> OrderDetails { get; set; }
-        public DbSet<Payment> Payments { get; set; }
-        public DbSet<PaymentDetail> PaymentDetails { get; set; }
-        public DbSet<PaymentMode> PaymentModes { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<ProductCategoryRel> ProductCategoryRelations { get; set; }
-        public DbSet<ProductGallery> ProductGalleries { get; set; }
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
-        public DbSet<ShoppingCartDetail> ShoppingCartDetails { get; set; }
-        public DbSet<State> States { get; set; }
-        public DbSet<Supplier> Suppliers { get; set; }
-        public DbSet<UserRoleRel> UserRoleRelations { get; set; }
-        public DbSet<UserType> UserTypes { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Brand> Brands { get; set; }
+        public virtual DbSet<City> Cities { get; set; }
+        public virtual DbSet<Country> Countries { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
+        public virtual DbSet<PaymentDetail> PaymentDetails { get; set; }
+        public virtual DbSet<PaymentMode> PaymentModes { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        //public virtual DbSet<ProductCategoryRel> ProductCategoryRelations { get; set; }
+        public virtual DbSet<ProductGallery> ProductGalleries { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<ShoppingCart> ShoppingCarts { get; set; }
+        public virtual DbSet<ShoppingCartDetail> ShoppingCartDetails { get; set; }
+        public virtual DbSet<State> States { get; set; }
+        public virtual DbSet<Supplier> Suppliers { get; set; }
+        public virtual DbSet<UserRoleRel> UserRoleRelations { get; set; }
+        public virtual DbSet<UserType> UserTypes { get; set; }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    //base.OnModelCreating(modelBuilder);
+        //    modelBuilder.Entity<Product>()
+        //        .Property(p => p.Id)
+        //        .IsRequired();
+        //}
     }
 }

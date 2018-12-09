@@ -12,7 +12,7 @@ namespace SAEntities
     {
         public Category()
         {
-            this.ProductCategoryRels = new HashSet<ProductCategoryRel>();
+            this.Products = new HashSet<Product>();
         }
         [Key]
         public long Id { get; set; }
@@ -40,6 +40,6 @@ namespace SAEntities
         [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
-        public ICollection<ProductCategoryRel> ProductCategoryRels { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }
