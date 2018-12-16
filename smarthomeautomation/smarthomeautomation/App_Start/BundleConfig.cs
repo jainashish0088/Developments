@@ -8,7 +8,7 @@ namespace smarthomeautomation
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/css/bootstrap.css", //Bootstrap core CSS
+            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap.css", //Bootstrap core CSS
                 "~/Content/css/font-awesome.min.css", //
                 "~/Content/css/mega_menu.css", //mega_menu
                 "~/Content/css/slider.css", //slider

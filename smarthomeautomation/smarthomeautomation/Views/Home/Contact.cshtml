@@ -1,17 +1,77 @@
 ﻿@{
+    Layout = "~/Views/Shared/_Static.cshtml";
     ViewBag.Title = "Contact";
+    ViewBag.PageLink = "<li class='active'>Contact</li>";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<section class="inner_page_section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Get in Touch With Us! </h2>
+        </div>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+        <div class="row">
+            <div class="col-xs-12 col-sm-5 col-md-4">
+                <div class="address_box">
+                    <div class="small-header">
+                        <h2 class="section-title">Our Address</h2>
+                    </div>
+                    <div class="address_col">
+                        <div class="location_name">Noida Office</div>
+                        <p>
+                            The Home Store, Opp Pathways School,<br>
+                            Sector 104, Noida, India.
+                        </p>
+                    </div>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+                    <div class="address_col">
+                        <div class="location_name">Gurgaon Office</div>
+                        <p>
+                            811, Sector 42 – Gurgaon
+                        </p>
+                    </div>
+
+                    <div class="address_col">
+                        <div class="location_name">Panipat Office</div>
+                        <p>
+                            195-R Model Town panipat 132103, India.<br>
+                            <span class="link"><i class="fa fa-mobile-phone"></i> 9958231280</span>
+                            <span class="link"><i class="fa fa-envelope-o"></i> <a href="sale@smarthomesolution.in">sale@smarthomesolution.in</a></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-7 col-md-8">
+                <p class="gray_bg"> Fill out the form below to recieve a free and confidential.</p>
+                <form class="contact_us_form" method="post" id="contactForm" novalidate>
+                    <div class="row">
+                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                            <label for="name">Name</label>
+                            <input class="form-control" id="name" name="name" placeholder="Name" type="text">
+                        </div>
+                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                            <label for="email">Email</label>
+                            <input class="form-control" id="email" name="email" placeholder="Email" type="email">
+                        </div>
+                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                            <label for="mobile">Mobile No</label>
+                            <input class="form-control" id="mobile" name="mobile" placeholder="+91" type="text">
+                        </div>
+                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                            <label for="subject">Subject</label>
+                            <input class="form-control" id="subject" name="subject" placeholder="Subject" type="text">
+                        </div>
+                        <div class="form-group col-lg-12 clear">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" name="message" id="message" rows="6" placeholder="Message"></textarea>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <button type="submit" value="submit" class="blue_btn">Send Messages</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>

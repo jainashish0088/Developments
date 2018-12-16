@@ -13,5 +13,9 @@ namespace smarthomeautomation.Controllers
         {
             return View();
         }
+        //public ActionResult Index(string dd, string SubCategoryName)
+        //{
+        //    return View();
+        //}
     }
 }

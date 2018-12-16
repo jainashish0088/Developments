@@ -18,6 +18,11 @@ namespace smarthomeautomation
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                name: "ProductCategory",
+                url: "categories/{id}",
+                defaults: new { controller = "ProductList", action = "Index", id = UrlParameter.Optional }
+            );
         }
     }
 }

@@ -11,8 +11,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
+    <link rel="icon" href="@Url.Content("~/favicon.ico")">
     <title>Smart Home Solution</title>
 
     <!-- Bootstrap core CSS -->
@@ -21,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../scripts/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../scripts/ie-emulation-modes-warning.js"></script>
+    <script src="@Url.Content("~/scripts/ie-emulation-modes-warning.js")"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -40,7 +39,9 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-body pt-0 pb-0">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <img src="../Content/images/icon/close.png" class="img-responsive"> </button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <img src="@Url.Content("~/content/images/icon/close.png")" width="31" height="30">
+                    </button>
 
                     <div class="calculator-form row">
                         <div class="calculator-image-wrapper col-xs-12 col-sm-5 col-md-6 hidden-xs" style="min-height:500px;">&nbsp;</div>
@@ -73,7 +74,7 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <img src="../Content/images/icon/close.png" width="31" height="30">
+                        <img src="@Url.Content("~/content/images/icon/close.png")" width="31" height="30">
                     </button>
                     <div class="form-group">
                         <input class="form-control" placeholder="So, What are you looking for?" value="" type="text">
@@ -88,7 +89,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <img src="../Content/images/icon/close.png" class="img-responsive"> </button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <img src="@Url.Content("~/content/images/icon/close.png")" class="img-responsive"> </button>
                     <div class="section-header">
                         <h2 class="section-title">GET A FREE QUOTE</h2>
                     </div>
@@ -144,7 +145,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <img src="../Content/images/icon/close.png" class="img-responsive"> </button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <img src="@Url.Content("~/content/images/icon/close.png")" class="img-responsive"> </button>
                     <div>
                         <div class="tab_section">
                             <!-- Nav tabs -->
@@ -285,7 +286,7 @@
                     <li><i class="fa fa-envelope-o"></i> <a href="mailto:sales@smarthomesolution.in">sales@smarthomesolution.in</a></li>
                 </ul>
                 <ul class="pull-right">
-                    <li class="text-uppercase"><i class="fa fa-headphones"></i><a href="support.html">Support</a></li>
+                    <li class="text-uppercase"><i class="fa fa-headphones"></i><a href="@Url.Content("~/home/contact")">Support</a></li>
                     <li>|</li>
                     <li class="text-uppercase"><a href="#login_modal" data-toggle="modal" data-backdrop="static"><i class="fa fa-lock"></i>Sign in</a></li>
                     <li class="text-uppercase"><a href="#free_quote_modal" data-toggle="modal" data-backdrop="static" class="free_quote"><i class="fa fa-arrow-circle-right"></i>Free Quote</a></li>
@@ -293,13 +294,13 @@
             </div>
         </div>
         <div class="container position-relative">
-            <div class="navbar-header"> <a class="navbar-brand" href="index.html"><img src="../Content/images/logo.png" class="img-responsive"></a> </div>
+            <div class="navbar-header"> <a class="navbar-brand" href="@Url.Content("~/")"><img src="@Url.Content("~/Content/images/logo.png")" class="img-responsive"></a> </div>
             <div class="menu_outer">
                 <ul class="search_cart_box">
-                    <li class="search_box"><a href="#search_modal" data-toggle="modal" data-backdrop="static"><img src="../Content/images/icon/search_icon.png"></a></li>
+                    <li class="search_box"><a href="#search_modal" data-toggle="modal" data-backdrop="static"><img src="@Url.Content("~/content/images/icon/search_icon.png")"></a></li>
                     <li class="cart_box pull-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-                            <div class="img"><img src="../Content/images/icon/cart.png"> </div>
+                            <div class="img"><img src="@Url.Content("~/content/images/icon/cart.png")"> </div>
                             <div class="cart_detail"> Cart <span>9 iteams</span> </div>
                         </a>
 
@@ -313,7 +314,7 @@
                                     <!--item_list-->
                                     <div class="item_list">
                                         <div class="img_box">
-                                            <a href="#"><img src="../Content/images/product_image/pro-12.jpg" class="img-responsive product_img"></a>
+                                            <a href="#"><img src="@Url.Content("~/content/images/product_image/pro-12.jpg")" class="img-responsive product_img"></a>
                                         </div>
                                         <div class="item_detail">
                                             <a class="remove_icon" href="#"><i class="fa fa-trash-o"></i></a>
