@@ -12,8 +12,6 @@ namespace smarthomeautomation.Controllers
     {
         public ActionResult Index()
         {
-            DalProduct objDalProduct = new DalProduct();
-            objDalProduct.SelectProductList("Bed Room");
             return View();
         }
 
