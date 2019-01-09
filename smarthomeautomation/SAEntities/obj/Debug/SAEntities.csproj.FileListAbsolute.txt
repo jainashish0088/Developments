@@ -13,3 +13,5 @@ D:\Projects\Github\Developments\smarthomeautomation\SAEntities\obj\Debug\SAEntit
 D:\Projects\Github\Developments\smarthomeautomation\SAEntities\obj\Debug\SAEntities.pdb
 D:\Projects\Github\Developments\smarthomeautomation\SAEntities\obj\Debug\SAEntities.csprojResolveAssemblyReference.cache
 D:\Projects\Github\Developments\smarthomeautomation\SAEntities\obj\Debug\SAEntities.Migrations.createmanytomanyrelationbetweenproductandcategory.resources
+D:\Projects\Github\Developments\smarthomeautomation\SAEntities\bin\Debug\SAPO.dll
+D:\Projects\Github\Developments\smarthomeautomation\SAEntities\bin\Debug\SAPO.pdb

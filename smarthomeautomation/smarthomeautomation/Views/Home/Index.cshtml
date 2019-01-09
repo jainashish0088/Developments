@@ -277,7 +277,8 @@
     </div>
 
     <!--Sign_in_modal_End-->
-    @Html.Partial("_Header")
+    @{ Html.RenderAction("Header", "Shared");}
+
     <!-- Full Page Image Background Carousel Header -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Wrapper for Slides -->

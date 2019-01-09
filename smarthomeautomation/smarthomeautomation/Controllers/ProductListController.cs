@@ -1,5 +1,4 @@
-﻿using SAEntities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,8 +12,8 @@ namespace smarthomeautomation.Controllers
         [Route("categories/{CategoryName}")]
         public ActionResult Index(string CategoryName)
         {
-            DalProduct objDalProduct = new DalProduct();
-            objDalProduct.SelectProductList(CategoryName);
+            //DalProduct objDalProduct = new DalProduct();
+            //objDalProduct.SelectProductList(CategoryName);
             return View();
         }
         

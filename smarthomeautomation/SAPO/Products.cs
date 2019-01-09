@@ -6,8 +6,17 @@ using System.Threading.Tasks;
 
 namespace SAPO
 {
+    public class GetProduct
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
     public class ProductsPro
     {
+        public ProductsPro()
+        {
+
+        }
         public int Id { get; set; }
         public string Name { get; set; }
         public int Image { get; set; }

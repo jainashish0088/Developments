@@ -120,3 +120,7 @@ D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\bin\Micr
 D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\bin\Newtonsoft.Json.pdb
 D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\bin\System.Diagnostics.DiagnosticSource.xml
+D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\bin\SAPO.dll
+D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\bin\SAPO.pdb
+D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\bin\SmartBAL.dll
+D:\Projects\Github\Developments\smarthomeautomation\smarthomeautomation\bin\SmartBAL.pdb

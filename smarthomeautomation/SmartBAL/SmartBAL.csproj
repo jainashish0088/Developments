@@ -33,6 +33,9 @@
     <Reference Include="SAEntities">
       <HintPath>..\SAEntities\bin\Debug\SAEntities.dll</HintPath>
     </Reference>
+    <Reference Include="SAPO">
+      <HintPath>..\SAPO\bin\Debug\SAPO.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Categories.cs" />
+    <Compile Include="IProduct.cs" />
     <Compile Include="Products.cs" />
     <Compile Include="ILogger.cs" />
     <Compile Include="INotifications.cs" />

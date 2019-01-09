@@ -1,7 +1,6 @@
 ﻿using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
-using SAEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +12,6 @@ namespace smarthomeautomation.Controllers
 {
     public class DefaultController : ApiController
     {
-        public string test()
-        {
-            DalProduct objDalProduct = new DalProduct();
-            objDalProduct.SelectProductList("cdf");
-            return "";
-        }
         [HttpGet]
         [Route("AuthorizedUser")]
         [Authorize(Roles = "Admin")]

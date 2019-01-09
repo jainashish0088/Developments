@@ -348,7 +348,8 @@
     </div>
 
     <!--Sign_in_modal_End-->
-    @Html.Partial("_Header")
+    @{ Html.RenderAction("_Header", "Partial");}
+    @*@Html.Partial("_Header")*@
     <!-- Main Image Section Header -->
     <div class="main_image_section listing_banner">
         <div class="container">
