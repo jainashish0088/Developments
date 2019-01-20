@@ -24,20 +24,20 @@ namespace smarthomeautomation
                 "~/Content/css/ion.rangeSlider.skinFlat.css" //rangeSlider
                 ));
             bundles.Add(new ScriptBundle("~/bundles/index").Include(
-                "~/scripts/jquery.min.js",
-                "~/scripts/mega_menu.js",
-                "~/scripts/bootstrap.min.js",
-                "~/scripts/owl.carousel.js",
-                "~/scripts/jquery.mCustomScrollbar.js",
-                "~/scripts/main.js"));
+                "~/scripts/js/jquery.min.js",
+                "~/scripts/js/mega_menu.js",
+                "~/scripts/js/bootstrap.min.js",
+                "~/scripts/js/owl.carousel.js",
+                "~/scripts/js/jquery.mCustomScrollbar.js",
+                "~/scripts/js/main.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/index").Include(
-                "~/scripts/jquery.min.js",
-                "~/scripts/mega_menu.js",
-                "~/scripts/bootstrap.min.js",
-                "~/scripts/owl.carousel.js",
-                "~/scripts/jquery.mCustomScrollbar.js",
-                "~/scripts/main.js"));
+                "~/scripts/js/jquery.min.js",
+                "~/scripts/js/mega_menu.js",
+                "~/scripts/js/bootstrap.min.js",
+                "~/scripts/js/owl.carousel.js",
+                "~/scripts/js/jquery.mCustomScrollbar.js",
+                "~/scripts/js/main.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/jquery-{version}.js"));

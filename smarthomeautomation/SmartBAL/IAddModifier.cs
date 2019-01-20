@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SmartBAL
 {
-    public interface IAddModifier
+    public interface IAddModifier<T>
     {
-        bool Add<T>(T detail);
-        bool Update<T>(T detail);
+        bool Add(T detail);
+        bool Update(T detail);
     }
 }

@@ -8,9 +8,9 @@ using SAPO;
 
 namespace SmartBAL
 {
-    public class Products : IAddModifier, IProduct<SAPO.GetProduct, SAPO.ProductsPro>
+    public class Products : IAddModifier<ProductsPro>, IProduct<SAPO.GetProduct, SAPO.ProductsPro>
     {
-        public bool Add<ProductsPro>(ProductsPro detail)
+        public bool Add(ProductsPro detail)
         {
             DalProduct objDalProduct = new DalProduct();
             return true;// objDalProduct.AddProduct(detail);
@@ -26,13 +26,13 @@ namespace SmartBAL
 
         public ProductsPro Retreive(GetProduct request)
         {
-            SAPO.ProductsPro product = new ProductsPro();
-            DalProduct objDalProduct = new DalProduct();
-            objDalProduct.SelectProductDetail(request.Id);
+            var product = new ProductsPro();
+            var objDalProduct = new DalProduct();
+            product = objDalProduct.SelectProductDetail(request.Name.ToLower().Replace("-", " "));
             return product;
         }
 
-        public bool Update<ProductsPro>(ProductsPro detail)
+        public bool Update(ProductsPro detail)
         {
             return true;
         }

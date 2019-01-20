@@ -1,6 +1,6 @@
+D:\Projects\Github\Developments\smarthomeautomation\SAPO\obj\Debug\SAPO.csproj.CoreCompileInputs.cache
 D:\Projects\Github\Developments\smarthomeautomation\SAPO\bin\Debug\SAPO.dll
 D:\Projects\Github\Developments\smarthomeautomation\SAPO\bin\Debug\SAPO.pdb
 D:\Projects\Github\Developments\smarthomeautomation\SAPO\obj\Debug\SAPO.csprojResolveAssemblyReference.cache
-D:\Projects\Github\Developments\smarthomeautomation\SAPO\obj\Debug\SAPO.csproj.CoreCompileInputs.cache
 D:\Projects\Github\Developments\smarthomeautomation\SAPO\obj\Debug\SAPO.dll
 D:\Projects\Github\Developments\smarthomeautomation\SAPO\obj\Debug\SAPO.pdb

@@ -1,0 +1,308 @@
+﻿@model SAPO.ProductsPro
+<div class="package_detail_outer">
+    <div class="row">
+        <!--images-->
+        <div class="col-xs-12 col-sm-4 col-md-5">
+            <div class="procuct_image_large">
+                @foreach (var img in Model.ProductGalleries)
+                {
+                    if (img.ShowOnListing)
+                    {
+                        <a href="@Url.Content("~/Content/images/product_image/" + img.GalleryImg)" class="gallery-popup"><img src="@Url.Content("~/Content/images/product_image/" + img.GalleryImg)" class="img-responsive"></a>
+                    }
+                }
+
+            </div>
+            <ul class="procuct_image_thum">
+                @foreach (var img in Model.ProductGalleries)
+                {
+                    <li><a href="@Url.Content("~/Content/images/product_image/" + img.GalleryImg)" class="gallery-popup"><img src="@Url.Content("~/Content/images/product_image/" + img.GalleryImg)" class="img-responsive"></a></li>
+                }
+
+            </ul>
+        </div>
+        <!--images_end-->
+        <!--product_details-->
+        <div class="col-xs-12 col-sm-8 col-md-7">
+            <div class="package_detail_section">
+                <div class="tittle clearfix">
+                    <div class="discount">25% OFF</div>
+                    @Model.ProductName <span>@Model.ProductCode</span>
+                </div>
+                <div class="position-relative">
+                    <div class="star_list">
+                        <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star-o"></i>
+                    </div>
+
+                    <div class="wishlist_icon">
+                        <a href="#"><i class="fa fa-heart"></i></a>
+                    </div>
+                    <div class="item_code">
+                        Item Code: <span>@Model.ProductCode</span>
+                    </div>
+                    @*<div class="item_code">
+                            EAN: <span>FGR 5902020528340</span>
+                        </div>*@
+                </div>
+                <div class="package_info">
+                    <h5>Description:</h5>
+                    <p>
+                        @Model.ProductDesc <a href="#">read more...</a>
+                    </p>
+                </div>
+                <div class="pice_box clearfix">
+                    <span class="original_price"><i class="fa fa-rupee"></i> @Model.MRP/-</span>
+                    <span class="offer_price"><i class="fa fa-rupee"></i> @Model.SellingPrice/-</span>
+                </div>
+            </div>
+
+            <div class="package_payment_info">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-4 col-md-4">
+                        <h1>Total <span>Inclusive of all taxes</span></h1>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-number minus_btn" data-type="minus" data-field="quant[2]">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                </button>
+                            </span>
+                            <input name="quant[2]" class="form-control input-number" value="1" min="1" max="50" type="text">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-number plush_btn" data-type="plus" data-field="quant[2]">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <span class="offer_price"><i class="fa fa-rupee"></i> @Model.SellingPrice/-</span>
+                    </div>
+                </div>
+                <div class="btn_box">
+                    <div class="row">
+
+                        <div class="col-xs-12 col-sm-6 col-md-7">
+                            <button class="blue_btn" type="button"><span>Book Now!</span></button>
+                        </div>
+                        @*<div class="col-xs-12 col-sm-6 col-md-5">
+                            <div class="social-share-icons">
+                                <h3>Share with friends</h3>
+                                <ul>
+                                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    <li class="mail"><a href="#"><i class="fa fa-envelope-o"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--product_details_end-->
+    </div>
+    <!--product_detail_tab_section-->
+    @*<div class="tab_section">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs responsive" role="tablist">
+                <li role="presentation" class="active"><a href="#product_detail" aria-controls="product_detail" role="tab" data-toggle="tab">Product Detail</a></li>
+                <li role="presentation"><a href="#specification" aria-controls="specification" role="tab" data-toggle="tab">Specification</a></li>
+                <!--<li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Reviews</a></li>-->
+                <li role="presentation"><a href="#whats_included" aria-controls="whats_included" role="tab" data-toggle="tab">What's Included</a></li>
+                <li role="presentation"><a href="#t_and_c" aria-controls="t_and_c" role="tab" data-toggle="tab">T &amp; C</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content responsive">
+                <div role="tabpanel" class="tab-pane fade in active" id="product_detail">
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+                    <p>Montserrat Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                    <p>
+                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+
+                    <div class="common_section mt-50">
+                        <div class="small-header">
+                            <h2 class="section-title">Available Brands</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="images/brands/epson.png" class="img-responsive logo_img">
+                            </div>
+                            <div class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="images/brands/jvc.png" class="img-responsive logo_img">
+                            </div>
+                            <div class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="images/brands/onkyo.png" class="img-responsive logo_img">
+                            </div>
+                            <div class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="images/brands/polkaudio.png" class="img-responsive logo_img">
+                            </div>
+                            <div class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="images/brands/sony.png" class="img-responsive logo_img">
+                            </div>
+                            <div class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="images/brands/pioneer.png" class="img-responsive logo_img">
+                            </div>
+
+                            <div class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="images/brands/epson.png" class="img-responsive logo_img">
+                            </div>
+                            <div class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="images/brands/jvc.png" class="img-responsive logo_img">
+                            </div>
+                            <div class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="images/brands/onkyo.png" class="img-responsive logo_img">
+                            </div>
+                            <div class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="images/brands/polkaudio.png" class="img-responsive logo_img">
+                            </div>
+                            <div class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="images/brands/sony.png" class="img-responsive logo_img">
+                            </div>
+                            <div class="col-xs-6 col-sm-3 col-md-2">
+                                <img src="images/brands/pioneer.png" class="img-responsive logo_img">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--specification tab-->
+                <div role="tabpanel" class="tab-pane fade" id="specification">
+                    2
+                </div>
+                <!--specification tab-->
+                <!--reviews tab-->
+                <!--<div role="tabpanel" class="tab-pane fade" id="reviews">
+                  <div class="comments_sction">
+                    <h1>Public Reviews / Comments:</h1>
+                    <div class="comments-form">
+                      <form class="form-header-comment" method="post" id="frmPostComment">
+                        <div class="row mb-15 border_bottom pb-10">
+                          <div class="col-xs-12 col-sm-4 col-md-4">
+                            <h3>Rate This <span>Campaign:</span></h3>
+                          </div>
+                          <div class="col-xs-12 col-sm-4 col-md-4">
+                            <div class="star-rating">
+                              <label>Proposed Impact:</label>
+                              <span class="fa fa_Idea fa-star" data-rating="1" style="cursor:pointer"></span> <span class="fa fa_Idea fa-star" data-rating="2" style="cursor:pointer"></span> <span class="fa fa_Idea fa-star" data-rating="3" style="cursor:pointer"></span> <span class="fa fa_Idea fa-star-o" data-rating="4" style="cursor:pointer"></span> <span class="fa fa_Idea fa-star-o" data-rating="5" style="cursor:pointer"></span>
+                              <input name="idea" id="idea" class="rating-value" value="1" type="hidden">
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-sm-4 col-md-4">
+                            <div class="star-rating">
+                              <label>Actual Impact:</label>
+                              <span class="fa fa_Impact fa-star-o" data-rating="1" style="cursor:pointer"></span> <span class="fa fa_Impact fa-star-o" data-rating="2" style="cursor:pointer"></span> <span class="fa fa_Impact fa-star-o" data-rating="3" style="cursor:pointer"></span> <span class="fa fa_Impact fa-star-o" data-rating="4" style="cursor:pointer"></span> <span class="fa fa_Impact fa-star-o" data-rating="5" style="cursor:pointer"></span>
+                              <input name="impact" id="impact" class="rating-value" value="0" type="hidden">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group clearfix">
+                          <div class="control-group clearfix">
+                            <div class="pull-left profile-picture"> <img src="images/backers-rounded-img.png" alt="" class="img-rounded"> </div>
+                            <div class="row comment-elem-wrapper">
+                              <div class="col-sm-9">
+                                <textarea type="text" rows="3" class="form-control" id="commentText" name="text" placeholder="Join the discussion..." required></textarea>
+                              </div>
+                              <div class="form-group clearfix col-sm-3">
+                                <input class="red_btn btn-block p-0 pt-10 pb-10" value="Submit" type="submit">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="comment_list">
+                      <ul>
+                        <li class="clearfix">
+                          <div class="profile-image pull-left"> <img src="images/backers-rounded-img.png" class="img-responsive"> </div>
+                          <div class="listing-content">
+                            <h2>Chetna Dhull <span class="date_time">Jan 08 2018 | 10:07:47AM </span></h2>
+                            <div class="col-xs-12 col-sm-6 col-md-6 p-0">
+                              <div class="star-rating">
+                                <label>Proposed Impact:</label>
+                                <span class="fa fa_Idea fa-star" data-rating="1"></span> <span class="fa fa_Idea fa-star" data-rating="2"></span> <span class="fa fa_Idea fa-star" data-rating="3"></span> <span class="fa fa_Idea fa-star" data-rating="4"></span> <span class="fa fa_Idea fa-star" data-rating="5"></span>
+                                <input name="idea" id="idea" class="rating-value" value="1" type="hidden">
+                              </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                              <div class="star-rating">
+                                <label>Actual Impact:</label>
+                                <span class="fa fa_Impact fa-star" data-rating="1"></span> <span class="fa fa_Impact fa-star" data-rating="2"></span> <span class="fa fa_Impact fa-star" data-rating="3"></span> <span class="fa fa_Impact fa-star-o" data-rating="4"></span> <span class="fa fa_Impact fa-star-o" data-rating="5"></span>
+                                <input name="impact" id="impact" class="rating-value" value="0" type="hidden">
+                              </div>
+                            </div>
+                            <p>I loved Jalika! Its a brilliant production, one that signifies different emotions for each audience member.</p>
+                            <p>Thanks Piya Rai Chaudhary and her fantastic team of expert dancers. </p>
+                          </div>
+                        </li>
+                        <li class="clearfix">
+                          <div class="profile-image pull-left"> <img src="images/backers-rounded-img.png" class="img-responsive"> </div>
+                          <div class="listing-content">
+                            <h2>Chetna Dhull <span class="date_time">Jan 08 2018 | 10:07:47AM </span></h2>
+                            <div class="col-xs-12 col-sm-6 col-md-6 p-0">
+                              <div class="star-rating">
+                                <label>Proposed Impact:</label>
+                                <span class="fa fa_Idea fa-star" data-rating="1"></span> <span class="fa fa_Idea fa-star" data-rating="2"></span> <span class="fa fa_Idea fa-star" data-rating="3"></span> <span class="fa fa_Idea fa-star" data-rating="4"></span> <span class="fa fa_Idea fa-star" data-rating="5"></span>
+                                <input name="idea" id="idea" class="rating-value" value="1" type="hidden">
+                              </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                              <div class="star-rating">
+                                <label>Actual Impact:</label>
+                                <span class="fa fa_Impact fa-star" data-rating="1"></span> <span class="fa fa_Impact fa-star" data-rating="2"></span> <span class="fa fa_Impact fa-star" data-rating="3"></span> <span class="fa fa_Impact fa-star-o" data-rating="4"></span> <span class="fa fa_Impact fa-star-o" data-rating="5"></span>
+                                <input name="impact" id="impact" class="rating-value" value="0" type="hidden">
+                              </div>
+                            </div>
+                            <p>I loved Jalika! Its a brilliant production, one that signifies different emotions for each audience member.</p>
+                            <p>Thanks Piya Rai Chaudhary and her fantastic team of expert dancers. </p>
+                          </div>
+                        </li>
+                        <li class="clearfix">
+                          <div class="profile-image pull-left"> <img src="images/backers-rounded-img.png" class="img-responsive"> </div>
+                          <div class="listing-content">
+                            <h2>Chetna Dhull <span class="date_time">Jan 08 2018 | 10:07:47AM </span></h2>
+                            <div class="col-xs-12 col-sm-6 col-md-6 p-0">
+                              <div class="star-rating">
+                                <label>Proposed Impact:</label>
+                                <span class="fa fa_Idea fa-star" data-rating="1"></span> <span class="fa fa_Idea fa-star" data-rating="2"></span> <span class="fa fa_Idea fa-star" data-rating="3"></span> <span class="fa fa_Idea fa-star" data-rating="4"></span> <span class="fa fa_Idea fa-star" data-rating="5"></span>
+                                <input name="idea" id="idea" class="rating-value" value="1" type="hidden">
+                              </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                              <div class="star-rating">
+                                <label>Actual Impact:</label>
+                                <span class="fa fa_Impact fa-star" data-rating="1"></span> <span class="fa fa_Impact fa-star" data-rating="2"></span> <span class="fa fa_Impact fa-star" data-rating="3"></span> <span class="fa fa_Impact fa-star-o" data-rating="4"></span> <span class="fa fa_Impact fa-star-o" data-rating="5"></span>
+                                <input name="impact" id="impact" class="rating-value" value="0" type="hidden">
+                              </div>
+                            </div>
+                            <p>I loved Jalika! Its a brilliant production, one that signifies different emotions for each audience member.</p>
+                            <p>Thanks Piya Rai Chaudhary and her fantastic team of expert dancers. </p>
+                          </div>
+                        </li>
+                        <a href="#" class="view-all">View All Comments</a>
+                      </ul>
+                    </div>
+                  </div>
+                </div>-->
+                <!--reviews tab-->
+                <!--whats_included tab-->
+                <div role="tabpanel" class="tab-pane fade" id="whats_included">
+                    4
+                </div>
+                <!--whats_included tab-->
+                <!--whats_included tab-->
+                <div role="tabpanel" class="tab-pane fade" id="t_and_c">
+                    5
+                </div>
+                <!--whats_included tab-->
+
+            </div>
+        </div>*@
+    <!--product_detail_tab_section-->
+
+</div>

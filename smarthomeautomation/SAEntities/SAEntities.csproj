@@ -79,6 +79,7 @@
     <Compile Include="ProductGallery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs" />
+    <Compile Include="SACategory.cs" />
     <Compile Include="SAContext.cs" />
     <Compile Include="ShoppingCart.cs" />
     <Compile Include="ShoppingCartDetail.cs" />

@@ -7,24 +7,27 @@ using SAPO;
 
 namespace SmartBAL
 {
-    public class Categories : IAddModifier, IProduct<SAPO.GetProduct, SAPO.ProductsPro>
+    public class Categories : IAddModifier<GetProduct>, IProduct<SAPO.MenuRequest, SAPO.Category>
     {
-        public bool Add<T>(T detail)
+        public bool Add(GetProduct detail)
         {
             throw new NotImplementedException();
         }
 
-        public List<ProductsPro> ListRetreive(GetProduct request)
+        public List<SAPO.Category> ListRetreive(SAPO.MenuRequest request)
+        {
+            List<SAPO.Category> lstCategory = new List<Category>();
+            SAEntities.SACategory sACategory = new SAEntities.SACategory();
+            lstCategory = sACategory.SelectMenu(request);
+            return lstCategory;
+        }
+
+        public SAPO.Category Retreive(SAPO.MenuRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public ProductsPro Retreive(GetProduct request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Update<T>(T detail)
+        public bool Update(GetProduct detail)
         {
             throw new NotImplementedException();
         }

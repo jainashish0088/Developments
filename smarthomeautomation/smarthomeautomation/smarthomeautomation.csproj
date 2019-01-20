@@ -106,6 +106,10 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="SAEntities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SAEntities\bin\Debug\SAEntities.dll</HintPath>
+    </Reference>
     <Reference Include="SAPO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\SAPO\bin\Debug\SAPO.dll</HintPath>
@@ -187,8 +191,10 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Controllers\SharedController.cs" />
     <Compile Include="Controllers\ProductListController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -394,6 +400,24 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\bootstrap.js" />
+    <Content Include="Scripts\js\bootstrap.min.js" />
+    <Content Include="Scripts\js\html5shiv.min.js" />
+    <Content Include="Scripts\js\ie-emulation-modes-warning.js" />
+    <Content Include="Scripts\js\ie10-viewport-bug-workaround.js" />
+    <Content Include="Scripts\js\ie8-responsive-file-warning.js" />
+    <Content Include="Scripts\js\ion.rangeSlider.js" />
+    <Content Include="Scripts\js\jquery.magnific-popup.js" />
+    <Content Include="Scripts\js\jquery.magnific-popup.min.js" />
+    <Content Include="Scripts\js\jquery.mCustomScrollbar.js" />
+    <Content Include="Scripts\js\jquery.min.js" />
+    <Content Include="Scripts\js\main.js" />
+    <Content Include="Scripts\js\mega_menu.js" />
+    <Content Include="Scripts\js\npm.js" />
+    <Content Include="Scripts\js\owl.carousel.js" />
+    <Content Include="Scripts\js\owl.carousel.min.js" />
+    <Content Include="Scripts\js\respond.min.js" />
+    <Content Include="Scripts\js\responsive-tabs.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\mega_menu.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
@@ -441,6 +465,7 @@
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_ProductSection.cshtml" />
+    <Content Include="Views\ProductDetail\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

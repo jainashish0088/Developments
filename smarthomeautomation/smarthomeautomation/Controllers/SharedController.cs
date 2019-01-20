@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartBAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,8 +13,11 @@ namespace smarthomeautomation.Controllers
         [ChildActionOnly]
         public ActionResult Header()
         {
-            SAPO.Menu menu = new SAPO.Menu();
-            return PartialView("_Header", menu);
+            SAPO.MenuRequest menu = new SAPO.MenuRequest();
+            Retrieve<SAPO.MenuRequest, SAPO.Category> retrieve = new Retrieve<SAPO.MenuRequest, SAPO.Category>(new Categories());
+            List<SAPO.Category> categories = new List<SAPO.Category>();
+            categories = retrieve.ListRetreive(menu);
+            return PartialView("_Header", categories);
         }
     }
 }

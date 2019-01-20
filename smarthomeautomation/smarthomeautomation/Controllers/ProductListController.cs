@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartBAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,9 +13,12 @@ namespace smarthomeautomation.Controllers
         [Route("categories/{CategoryName}")]
         public ActionResult Index(string CategoryName)
         {
-            //DalProduct objDalProduct = new DalProduct();
-            //objDalProduct.SelectProductList(CategoryName);
-            return View();
+            SAPO.GetProduct getProduct = new SAPO.GetProduct();
+            getProduct.Name = CategoryName.Replace("-", " ").Replace(".", "_");
+            Retrieve<SAPO.GetProduct, SAPO.ProductsPro> retrieve = new Retrieve<SAPO.GetProduct, SAPO.ProductsPro>(new Products());
+            List<SAPO.ProductsPro> products = new List<SAPO.ProductsPro>();
+            products = retrieve.ListRetreive(getProduct);
+            return View(products);
         }
         
         
