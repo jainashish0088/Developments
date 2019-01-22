@@ -158,66 +158,66 @@
                         <a href="@Url.Content("~/categories/" + category.Name.ToLower().Replace(" ", "-"))">@category.Name</a>
                         @if (category.CategoryId != null)
                         {
-                            <div class="megamenu full-width">
-                                <div class="my-row">
-                                    <div class="col1">
-                                        <ul>
-                                            <li class="title">
-                                                <h5>Sound</h5>
-                                            </li>
-                                            <li><a href="#">AV Receivers</a></li>
-                                            <li><a href="#">Floorspeakers</a></li>
-                                            <li><a href="#">Centre</a></li>
-                                            <li><a href="#">Surround</a></li>
-                                            <li><a href="#">Sub-woofer</a></li>
-                                            <li><a href="#">Ceiling Speaker</a></li>
-                                            <li><a href="#">Soundbar</a></li>
-                                            <li><a href="#">Outdoor</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col1">
-                                        <ul>
-                                            <li class="title">
-                                                <h5>Video</h5>
-                                            </li>
-                                            <li><a href="#">HD</a></li>
-                                            <li><a href="#">4K</a></li>
-                                            <li><a href="#">Business</a></li>
-                                            <li><a href="#">Cloud Touch Flat Panel Display</a></li>
-                                            <li><a href="#">Commercial TV</a></li>
-                                            <li><a href="#">Spider Web</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col1">
-                                        <ul>
-                                            <li class="title">
-                                                <h5>Acoustics</h5>
-                                            </li>
-                                            <li><a href="#">HT-1</a></li>
-                                            <li><a href="#">HT-2</a></li>
-                                            <li><a href="#">HT-3</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col1">
-                                        <ul>
-                                            <li class="title">
-                                                <h5>Custom Series</h5>
-                                            </li>
-                                            <li><a href="#">In Wall</a></li>
-                                            <li><a href="#">In Cieling</a></li>
-                                            <li class="title">
-                                                <h5><a href="#">Wireless Products</a></h5>
-                                            </li>
-                                            <li class="title">
-                                                <h5><a href="#">Media Server</a></h5>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col2" style="text-align:right;"> <img src="../Content/images/5.jpg"> </div>
+                        <div class="megamenu full-width">
+                            <div class="my-row">
+                                <div class="col1">
+                                    <ul>
+                                        <li class="title">
+                                            <h5>Sound</h5>
+                                        </li>
+                                        <li><a href="#">AV Receivers</a></li>
+                                        <li><a href="#">Floorspeakers</a></li>
+                                        <li><a href="#">Centre</a></li>
+                                        <li><a href="#">Surround</a></li>
+                                        <li><a href="#">Sub-woofer</a></li>
+                                        <li><a href="#">Ceiling Speaker</a></li>
+                                        <li><a href="#">Soundbar</a></li>
+                                        <li><a href="#">Outdoor</a></li>
+                                    </ul>
                                 </div>
+                                <div class="col1">
+                                    <ul>
+                                        <li class="title">
+                                            <h5>Video</h5>
+                                        </li>
+                                        <li><a href="#">HD</a></li>
+                                        <li><a href="#">4K</a></li>
+                                        <li><a href="#">Business</a></li>
+                                        <li><a href="#">Cloud Touch Flat Panel Display</a></li>
+                                        <li><a href="#">Commercial TV</a></li>
+                                        <li><a href="#">Spider Web</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col1">
+                                    <ul>
+                                        <li class="title">
+                                            <h5>Acoustics</h5>
+                                        </li>
+                                        <li><a href="#">HT-1</a></li>
+                                        <li><a href="#">HT-2</a></li>
+                                        <li><a href="#">HT-3</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col1">
+                                    <ul>
+                                        <li class="title">
+                                            <h5>Custom Series</h5>
+                                        </li>
+                                        <li><a href="#">In Wall</a></li>
+                                        <li><a href="#">In Cieling</a></li>
+                                        <li class="title">
+                                            <h5><a href="#">Wireless Products</a></h5>
+                                        </li>
+                                        <li class="title">
+                                            <h5><a href="#">Media Server</a></h5>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col2" style="text-align:right;"> <img src="../Content/images/5.jpg"> </div>
                             </div>
+                        </div>
                         }
-                        
+
                     </li>
                 }
                 @*<!--Home Theatre -->
@@ -309,7 +309,8 @@
 
                     <!--Home Automation End -->
 
-                    <li><a href="#">About Us</a></li>*@
+                *@
+                <li><a href="@Url.Content("~/home/about")">About Us</a></li>
             </ul>
         </div>
     </div>

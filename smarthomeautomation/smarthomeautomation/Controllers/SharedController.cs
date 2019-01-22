@@ -11,6 +11,7 @@ namespace smarthomeautomation.Controllers
     {
         // GET: Partial
         [ChildActionOnly]
+        [OutputCache]
         public ActionResult Header()
         {
             SAPO.MenuRequest menu = new SAPO.MenuRequest();
