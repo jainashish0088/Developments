@@ -1,0 +1,26 @@
+﻿@model List<SAPO.Brands>
+
+<!--Feature_brand_Section_Start -->
+<section class="feature_brand_section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Feature Brand</h2>
+            <div class="owl_carousel_nav">
+                <a class="prev_btn prev"><img src="../Content/images/icon/prev.png"></a>
+                <a class="next_btn next"><img src="../Content/images/icon/next.png"></a>
+            </div>
+        </div>
+
+
+        <div id="owl-logo-slider" class="owl-carousel owl-theme">
+            @foreach (var brand in Model)
+            {
+                <div class="item">
+                    <a href="@Url.Content("~/brands/" + brand.Name.ToLower().Replace(" ","-").Replace(".","_"))"><img src="@Url.Content("~/Content/images/brands/" + brand.SmallImg)" title="@brand.Name" alt="@brand.Name" class="img_border img-responsive"></a>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<section class="feature_brand_section"></section>
+<!--Feature_brand_Section_End -->

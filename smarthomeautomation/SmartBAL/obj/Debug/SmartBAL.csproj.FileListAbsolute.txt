@@ -11,3 +11,15 @@ D:\Projects\Github\Developments\smarthomeautomation\SmartBAL\bin\Debug\SAPO.pdb
 D:\Projects\Github\Developments\smarthomeautomation\SmartBAL\bin\Debug\EntityFramework.xml
 D:\Projects\Github\Developments\smarthomeautomation\SmartBAL\obj\Debug\SmartBAL.dll
 D:\Projects\Github\Developments\smarthomeautomation\SmartBAL\obj\Debug\SmartBAL.pdb
+D:\Projects\Github\Development\Developments\smarthomeautomation\SmartBAL\obj\Debug\SmartBAL.csprojResolveAssemblyReference.cache
+D:\Projects\Github\Development\Developments\smarthomeautomation\SmartBAL\obj\Debug\SmartBAL.dll
+D:\Projects\Github\Development\Developments\smarthomeautomation\SmartBAL\obj\Debug\SmartBAL.pdb
+D:\Projects\Github\Development\Developments\smarthomeautomation\SmartBAL\bin\Debug\SmartBAL.dll
+D:\Projects\Github\Development\Developments\smarthomeautomation\SmartBAL\bin\Debug\SmartBAL.pdb
+D:\Projects\Github\Development\Developments\smarthomeautomation\SmartBAL\bin\Debug\SAEntities.dll
+D:\Projects\Github\Development\Developments\smarthomeautomation\SmartBAL\bin\Debug\SAPO.dll
+D:\Projects\Github\Development\Developments\smarthomeautomation\SmartBAL\bin\Debug\EntityFramework.dll
+D:\Projects\Github\Development\Developments\smarthomeautomation\SmartBAL\bin\Debug\SAEntities.pdb
+D:\Projects\Github\Development\Developments\smarthomeautomation\SmartBAL\bin\Debug\SAEntities.dll.config
+D:\Projects\Github\Development\Developments\smarthomeautomation\SmartBAL\bin\Debug\SAPO.pdb
+D:\Projects\Github\Development\Developments\smarthomeautomation\SmartBAL\bin\Debug\EntityFramework.xml

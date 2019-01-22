@@ -7,18 +7,18 @@ using System.Web.Mvc;
 
 namespace smarthomeautomation.Controllers
 {
-    public class ProductListController : Controller
+    public class BrandsController : Controller
     {
-        // GET: ProductList
-        [Route("categories/{CategoryName}")]
-        public ActionResult Index(string CategoryName)
+        // GET: Brands
+        [Route("~/brands/{brandName}")]
+        public ActionResult Index(string brandName)
         {
             SAPO.GetProduct getProduct = new SAPO.GetProduct();
-            getProduct.CategoryName = CategoryName.Replace("-", " ").Replace(".", "_");
+            getProduct.BrandName = brandName.Replace("-", " ").Replace(".", "_");
             Retrieve<SAPO.GetProduct, SAPO.ProductsPro> retrieve = new Retrieve<SAPO.GetProduct, SAPO.ProductsPro>(new Products());
             List<SAPO.ProductsPro> products = new List<SAPO.ProductsPro>();
             products = retrieve.ListRetreive(getProduct);
-            return View(products);
+            return View("~/Views/ProductList/Index.cshtml", products);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace smarthomeautomation.Controllers
     {
         // GET: Partial
         [ChildActionOnly]
-        [OutputCache]
+        [OutputCache(Duration = 100)]
         public ActionResult Header()
         {
             SAPO.MenuRequest menu = new SAPO.MenuRequest();
@@ -19,6 +19,38 @@ namespace smarthomeautomation.Controllers
             List<SAPO.Category> categories = new List<SAPO.Category>();
             categories = retrieve.ListRetreive(menu);
             return PartialView("_Header", categories);
+        }
+        public ActionResult Brands()
+        {
+            SAPO.BrandInput brand = new SAPO.BrandInput();
+            Retrieve<SAPO.BrandInput, SAPO.Brands> retrieve = new Retrieve<SAPO.BrandInput, SAPO.Brands>(new SmartBAL.Brands());
+            List<SAPO.Brands> lstbrands = new List<SAPO.Brands>();
+            lstbrands = retrieve.ListRetreive(brand);
+            return PartialView("_Brands", lstbrands);
+        }
+        public ActionResult TopSeller()
+        {
+            SAPO.BrandInput brand = new SAPO.BrandInput();
+            Retrieve<SAPO.BrandInput, SAPO.Brands> retrieve = new Retrieve<SAPO.BrandInput, SAPO.Brands>(new SmartBAL.Brands());
+            List<SAPO.Brands> lstbrands = new List<SAPO.Brands>();
+            lstbrands = retrieve.ListRetreive(brand);
+            return PartialView("_TopSeller", lstbrands);
+        }
+        public ActionResult PopularProducts()
+        {
+            SAPO.BrandInput brand = new SAPO.BrandInput();
+            Retrieve<SAPO.BrandInput, SAPO.Brands> retrieve = new Retrieve<SAPO.BrandInput, SAPO.Brands>(new SmartBAL.Brands());
+            List<SAPO.Brands> lstbrands = new List<SAPO.Brands>();
+            lstbrands = retrieve.ListRetreive(brand);
+            return PartialView("_PopularProducts", lstbrands);
+        }
+        public ActionResult FeaturedCategory()
+        {
+            SAPO.BrandInput brand = new SAPO.BrandInput();
+            Retrieve<SAPO.BrandInput, SAPO.Brands> retrieve = new Retrieve<SAPO.BrandInput, SAPO.Brands>(new SmartBAL.Brands());
+            List<SAPO.Brands> lstbrands = new List<SAPO.Brands>();
+            lstbrands = retrieve.ListRetreive(brand);
+            return PartialView("_FeaturedCategory", lstbrands);
         }
     }
 }

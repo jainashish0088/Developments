@@ -20,7 +20,7 @@ namespace SmartBAL
         {
             List<ProductsPro> lstProductsPro = new List<ProductsPro>();
             DalProduct objDalProduct = new DalProduct();
-            lstProductsPro = objDalProduct.SelectProductList(request.Name);
+            lstProductsPro = objDalProduct.SelectProductList(request);
             return lstProductsPro;
         }
 
