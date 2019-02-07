@@ -14,6 +14,7 @@ namespace SAEntities
             SAContext objSAContext = new SAContext();
             List<SAPO.ProductsPro> lstProductsPro = new List<ProductsPro>();
             var lstProduct = new List<Product>();
+            
             var products = objSAContext.Products.Include("ProductGalleries");
             if (!string.IsNullOrWhiteSpace(getProduct.CategoryName) && !string.IsNullOrWhiteSpace(getProduct.BrandName))
                 lstProduct = products.Where(c => c.Brand.Name.ToLower().Contains(getProduct.BrandName.ToLower()) && c.Categories.Any(xcat => xcat.Name.ToLower().Contains(getProduct.CategoryName.ToLower())) && c.IsActive == true && c.IsDeleted == false).ToList();

@@ -1,0 +1,440 @@
+﻿
+@{
+    ViewBag.Title = "Calculator";
+    Layout = null;
+}
+@model List<SAPO.Category>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/innercss")
+    <link rel="icon" href="../../favicon.ico">
+    <title>Smart Home Solution</title>
+
+    <!-- google-font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="@Url.Content("~/scripts/js/ie-emulation-modes-warning.js")"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+          <script src="js/html5shiv.min.js"></script>
+          <script src="js/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <div class="page-loader">
+        <div class="loader">Loading...</div>
+    </div>
+
+    <div class="calculator-form row">
+        <div class="calculator-image-wrapper col-xs-12 col-sm-5 col-md-6 hidden-xs">
+            <div class="image-content">
+                <h1><span>Drive</span></h1>
+                <h2><span>Your</span></h2>
+                <h1><span>Own</span></h1>
+                <h2><span>Choice</span></h2>
+            </div>
+        </div>
+
+        <div class="calculator-content-wrapper col-xs-12 col-sm-7 col-md-6">
+            <a href="@Url.Content("~/")"><img src="@Url.Content("~/Content/images/logo.png")" class="img-rounded center-block logo_box"></a>
+            <form method="post" id="calculatorForm">
+                <div class="calculator-content-section">
+                    <!--step 1-->
+                    <div id="dvInfo1" class="section_box" style="">
+                        <div class="section-header">
+                            <h2 class="section-title">Personal Info</h2>
+                        </div>
+                        <div>
+                            <div class="scrollbar_box calculator_scrollbox mCustomScrollbar" data-mcs-theme="dark" style=" ">
+                                <div class="row">
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <label for="name">Name</label>
+                                        <input class="form-control" id="name" name="name" placeholder="eng: Anil Kadian" type="text">
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <label for="email">Email</label>
+                                        <input class="form-control" id="email" name="email" placeholder="eng: abc@abc.com" type="email">
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <label for="mobile">Mobile No</label>
+                                        <input class="form-control" id="mobile" name="mobile" placeholder="+91" type="text">
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                        <label for="location">Location</label>
+                                        <input class="form-control" id="location" name="location" placeholder="eng: South Delhi" type="text">
+                                    </div>
+                                    <div class="form-group col-lg-12" style="clear:both;">
+                                        <div class="property_selection">
+                                            <h3>Select Your Residence Type:</h3>
+                                            <ul>
+                                                <li>
+                                                    <a href="javascript:void(0)"><img src="@Url.Content("Content/images/icon/apartment_icon.png")" class="img-responsive"></a>
+                                                    <span>Apartment</span>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0)" class="selected"><img src="@Url.Content("Content/images/icon/office_icon.png")" c class="img-responsive"></a>
+                                                    <span>Office</span>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0)"><img src="@Url.Content("Content/images/icon/bungalow_icon.png")" class="img-responsive"></a>
+                                                    <span>Bungalow</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="btn_box_border">
+                            <!---->
+                            <a class="blue_btn" onclick="return ManageYourDrive(2, 3)">START PLANNING</a>
+                        </div>
+                    </div>
+                    <!--step 1 End-->
+                    <!--step 2-->
+                    <div id="dvInfo2" class="section_box" style="display:none;">
+                        <div class="section-header">
+                            <h2 class="section-title">Resident Type: <span id="spnResidenceType">Apartment</span></h2>
+                        </div>
+                        <div class="scrollbar_box calculator_scrollbox mCustomScrollbar" data-mcs-theme="dark" style="">
+                            <div class="plan_headding">Number of rooms that needs to be automated:</div>
+                            <div class="row">
+                                @foreach (var cat in Model)
+                                {
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                        <label for="LivingRoom">@cat.Name</label>
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-danger btn-number" data-type="minus" data-field="@("Cat"+cat.Id)">
+                                                <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                        </span>
+                                        <input type="text" class="form-control input-number" min="1" value="1" id="@("Cat"+cat.Id)" name="@("Cat"+cat.Id)" />
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="@("Cat"+cat.Id)">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                }
+                                @*<div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                        <label for="BedRoom">Bed Room</label>
+                                        <select class="form-control select_dropdown" name="BedRoom" id="BedRoom">
+                                            <option value="">Select Here</option>
+                                            <option value="BedRoom1">1</option>
+                                            <option value="BedRoom2">2</option>
+                                            <option value="BedRoom3">3</option>
+                                            <option value="BedRoom4">4</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                        <label for="Kitchen">Kitchen</label>
+                                        <select class="form-control select_dropdown" name="Kitchen" id="LivingRoom">
+                                            <option value="">Select Here</option>
+                                            <option value="Kitchen-1">1</option>
+                                            <option value="Kitchen-2">2</option>
+                                            <option value="Kitchen-3">3</option>
+                                            <option value="Kitchen-4">4</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                        <label for="StudyRoom">Study Room</label>
+                                        <select class="form-control select_dropdown" name="StudyRoom" id="LivingRoom">
+                                            <option value="">Select Here</option>
+                                            <option value="StudyRoom-1">1</option>
+                                            <option value="StudyRoom-2">2</option>
+                                            <option value="StudyRoom-3">3</option>
+                                            <option value="StudyRoom-4">4</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                        <label for="TVRoom">TV Room</label>
+                                        <select class="form-control select_dropdown" name="TVRoom" id="TVRoom">
+                                            <option value="">Select Here</option>
+                                            <option value="TVRoom1">1</option>
+                                            <option value="TVRoom2">2</option>
+                                            <option value="TVRoom3">3</option>
+                                            <option value="TVRoom4">4</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                        <label for="DinningArea">Dinning Area</label>
+                                        <select class="form-control select_dropdown" name="DinningArea" id="DinningArea">
+                                            <option value="">Select Here</option>
+                                            <option value="DinningArea1">1</option>
+                                            <option value="DinningArea2">2</option>
+                                            <option value="DinningArea3">3</option>
+                                            <option value="DinningArea4">4</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                        <label for="WashroomRoom">Washroom Room</label>
+                                        <select class="form-control select_dropdown" name="WashroomRoom" id="WashroomRoom">
+
+                                            <option value="">Select Here</option>
+                                            <option value="WashroomRoom1">1</option>
+                                            <option value="WashroomRoom2">2</option>
+                                            <option value="WashroomRoom3">3</option>
+                                            <option value="WashroomRoom4">4</option>
+                                        </select>
+                                    </div>*@
+
+                            </div>
+                        </div>
+
+
+                        <div class="btn_box_border">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <button type="button" class="white_btn" onclick="return ManageYourDrive(1, 3)">Back</button>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                    <button type="button" value="submit" class="blue_btn" onclick="return ManageYourDrive(3, 3)">Save Next</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--step 2 End-->
+                    <!--step 3-->
+                    <div id="dvInfo3" class="section_box" style="display:none;">
+                        <div class="section-header">
+                            <h2 class="section-title">Resident Type: <span>Apartment</span></h2>
+                        </div>
+                        <div class="plan_headding">
+                            Brands Preferred
+                            <div class="checkbox checkbox-common pull-right">
+                                <input id="AllBrands" type="checkbox">
+                                <label for="AllBrands"> All Brands</label>
+                            </div>
+                        </div>
+                        <!--scrollbar_box-->
+                        <div class="scrollbar_box calculator_scrollbox mCustomScrollbar height_300" data-mcs-theme="dark" style="">
+                            <div class="row" id="dvbrands">
+                                
+                            </div>
+
+                        </div>
+
+                        <!--scrollbar_box-->
+
+                        <div class="btn_box_border">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <button type="button" class="white_btn" onclick="return ManageYourDrive(2, 3)">Back</button>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                    <input type="submit" value="Save Next" class="blue_btn" />
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!--step 3 End-->
+                </div>
+            </form>
+        </div>
+    </div>
+    <input type="hidden" id="category" />
+    <input type="hidden" id="brands" />
+    <!--Footer Section Start -->
+    <div class="footer p-0">
+        <div class="fotter_info mt-0 border_top">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Links -->
+                    <div class="col-md-5 col-sm-4 col-xs-12">
+                        <div class="footer-links">
+                            <p> &copy; 2018 <span>www.smarthomesolution.in</span> All Right Reversed.</p>
+                        </div>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-12">
+                        <div class="social-icons">
+                            <ul>
+                                <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li class="youtube"><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                                <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12 hidden-xs">
+                        <div class="copyright">
+                            <p> Powered by : <a target="_blank" href="#">Smart Home Solution</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Footer Section End -->
+    <!-- Go To Top Link -->
+    <a href="#" class="back-to-top"> <i class="fa  fa-angle-double-up"></i> </a>
+    <!-- Go To Top Link -->
+
+    @Scripts.Render("~/bundles/index")
+    <script src="@Url.Content("~/scripts/js/responsive-tabs.js")"></script>
+    <script src="@Url.Content("~/scripts/js/ion.rangeSlider.js")"></script>
+    <script>
+        function ManageYourDrive(id, total) {
+            for (i = 1; i <= total; i++) {
+                $("#dvInfo" + i).hide();
+            }
+            $("#dvInfo" + id).show();
+        }
+        $(function () {
+            $('.property_selection li a').click(function (e) {
+                $('.property_selection li a.selected').removeClass('selected');
+                $(this).addClass('selected');
+                $("#spnResidenceType").html($(this).siblings("span").html());
+                e.preventDefault();
+            });
+            LoadData();
+        });
+        $('.btn-number').click(function (e) {
+            e.preventDefault();
+
+            fieldName = $(this).attr('data-field');
+            type = $(this).attr('data-type');
+            var input = $("input[name='" + fieldName + "']");
+            var currentVal = parseInt(input.val());
+            if (!isNaN(currentVal)) {
+                if (type == 'minus') {
+                    //input.val(currentVal - 1).change();
+                    if (currentVal > input.attr('min')) {
+                        input.val(currentVal - 1).change();
+                    }
+                    if (parseInt(input.val()) == input.attr('min')) {
+                        $(this).attr('disabled', true);
+                    }
+                } else if (type == 'plus') {
+                    input.val(currentVal + 1).change();
+                    //if (currentVal < input.attr('max')) {
+                    //    input.val(currentVal + 1).change();
+                    //}
+                    //if (parseInt(input.val()) == input.attr('max')) {
+                    //    $(this).attr('disabled', true);
+                    //}
+                }
+            } else {
+                input.val(0);
+            }
+        });
+        $('.input-number').focusin(function () {
+            $(this).data('oldValue', $(this).val());
+        });
+        $('.input-number').change(function () {
+            minValue = parseInt($(this).attr('min'));
+            maxValue = parseInt($(this).attr('max'));
+            valueCurrent = parseInt($(this).val());
+
+            name = $(this).attr('name');
+            if (valueCurrent >= minValue) {
+                $(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled')
+            } else {
+                //alert('Sorry, the minimum value was reached');
+                $(this).val($(this).data('oldValue'));
+            }
+            //if (valueCurrent <= maxValue) {
+            //    $(".btn-number[data-type='plus'][data-field='" + name + "']").removeAttr('disabled')
+            //} else {
+            //    //alert('Sorry, the maximum value was reached');
+            //    $(this).val($(this).data('oldValue'));
+            //}
+        });
+        $(".input-number").keydown(function (e) {
+            // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+                // Allow: Ctrl+A
+                (e.keyCode == 65 && e.ctrlKey === true) ||
+                // Allow: home, end, left, right
+                (e.keyCode >= 35 && e.keyCode <= 39)) {
+                // let it happen, don't do anything
+                return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
+        });
+        function LoadData() {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Brands")',
+            dataType: 'json',
+            data: { id: '' },
+            success: function (data) {
+                var items = '';
+                $.each(data, function (i, brand) {
+                    var rows =
+                        "<div class='col-xs-4 col-sm-4 col-md-4'>" +
+                        "<div class='brand_list'>"+
+                        "<div class='checkbox checkbox-common'>"+
+                        "<input id='" + brand.Id +"' type='checkbox'>"+
+                        "<label for='" + brand.Name +"'><img src=\"@Url.Content("~/Content/images/brands/")" + brand.SmallImg + "\" title='" + brand.Name +"' alt='" + brand.Name+"' class='img_border img-responsive'></label>"+
+                        "</div>"+
+                        "</div>"+
+                        "</div>";
+                    $('#dvbrands').append(rows);
+                });
+            },
+            error: function (ex) {
+                var r = jQuery.parseJSON(response.responseText);
+                alert("Message: " + r.Message);
+                alert("StackTrace: " + r.StackTrace);
+                alert("ExceptionType: " + r.ExceptionType);
+            }
+        });
+        return false;
+        }
+        function LoadProducts() {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ProductList")',
+            dataType: 'json',
+            data: { id: '' },
+            success: function (data) {
+                var items = '';
+                $.each(data, function (i, brand) {
+                    var rows =
+                        "<div class='col-xs-4 col-sm-4 col-md-4'>" +
+                        "<div class='brand_list'>"+
+                        "<div class='checkbox checkbox-common'>"+
+                        "<input id='" + brand.Id +"' type='checkbox'>"+
+                        "<label for='" + brand.Name +"'><img src=\"@Url.Content("~/Content/images/brands/")" + brand.SmallImg + "\" title='" + brand.Name +"' alt='" + brand.Name+"' class='img_border img-responsive'></label>"+
+                        "</div>"+
+                        "</div>"+
+                        "</div>";
+                    $('#dvbrands').append(rows);
+                });
+            },
+            error: function (ex) {
+                var r = jQuery.parseJSON(response.responseText);
+                alert("Message: " + r.Message);
+                alert("StackTrace: " + r.StackTrace);
+                alert("ExceptionType: " + r.ExceptionType);
+            }
+        });
+        return false;
+    }
+    </script>
+</body>
+</html>

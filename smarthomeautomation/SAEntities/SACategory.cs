@@ -12,8 +12,8 @@ namespace SAEntities
         {
             SAContext objSAContext = new SAContext();
             List<SAPO.Category> lstCategory = new List<SAPO.Category>();
-            var categories = objSAContext.Categories.Where(c => c.CategoryId == menuRequest.Id && c.IsActive == true && c.IsDeleted == false).ToList();
-            foreach(var category in categories)
+            var categories = objSAContext.Categories.Where(c => c.CategoryId == menuRequest.Id && c.IsActive == true && c.IsDeleted == false && c.IsShowOnCalculator == menuRequest.IsShowOnCalculator).ToList();
+            foreach (var category in categories)
             {
                 SAPO.Category _category = new SAPO.Category();
                 _category.Id = category.Id;

@@ -31,3 +31,4 @@ D:\Projects\Github\Development\Developments\smarthomeautomation\SAEntities\bin\D
 D:\Projects\Github\Development\Developments\smarthomeautomation\SAEntities\bin\Debug\EntityFramework.xml
 D:\Projects\Github\Development\Developments\smarthomeautomation\SAEntities\bin\Debug\EntityFramework.SqlServer.xml
 D:\Projects\Github\Development\Developments\smarthomeautomation\SAEntities\bin\Debug\SAPO.pdb
+D:\Projects\Github\Developments\smarthomeautomation\SAEntities\obj\Debug\SAEntities.Migrations.CategoryAddShowInCalculatorProperty.resources

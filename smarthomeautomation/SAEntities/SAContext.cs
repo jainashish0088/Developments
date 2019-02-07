@@ -35,6 +35,10 @@ namespace SAEntities
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<UserRoleRel> UserRoleRelations { get; set; }
         public virtual DbSet<UserType> UserTypes { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Types().Configure(t => t.MapToStoredProcedures());
+        }
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)
         //{
         //    //base.OnModelCreating(modelBuilder);

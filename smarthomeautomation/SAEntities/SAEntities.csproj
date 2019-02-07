@@ -70,6 +70,10 @@
     <Compile Include="Migrations\201812091138310_createmanytomanyrelationbetweenproductandcategory.Designer.cs">
       <DependentUpon>201812091138310_createmanytomanyrelationbetweenproductandcategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902031256525_CategoryAddShowInCalculatorProperty.cs" />
+    <Compile Include="Migrations\201902031256525_CategoryAddShowInCalculatorProperty.Designer.cs">
+      <DependentUpon>201902031256525_CategoryAddShowInCalculatorProperty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderDetail.cs" />
@@ -102,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812091138310_createmanytomanyrelationbetweenproductandcategory.resx">
       <DependentUpon>201812091138310_createmanytomanyrelationbetweenproductandcategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902031256525_CategoryAddShowInCalculatorProperty.resx">
+      <DependentUpon>201902031256525_CategoryAddShowInCalculatorProperty.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

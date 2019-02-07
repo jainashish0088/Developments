@@ -114,7 +114,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\SAPO\bin\Debug\SAPO.dll</HintPath>
     </Reference>
-    <Reference Include="SmartBAL">
+    <Reference Include="SmartBAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\SmartBAL\bin\Debug\SmartBAL.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -190,6 +191,7 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BrandsController.cs" />
+    <Compile Include="Controllers\CalculatorController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductDetailController.cs" />
@@ -472,6 +474,8 @@
     <Content Include="Views\Shared\_TopSeller.cshtml" />
     <Content Include="Views\Shared\_PopularProducts.cshtml" />
     <Content Include="Views\Shared\_FeaturedCategory.cshtml" />
+    <Content Include="Views\Calculator\Index.cshtml" />
+    <Content Include="Views\Calculator\ProductList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

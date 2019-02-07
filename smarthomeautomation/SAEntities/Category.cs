@@ -37,6 +37,7 @@ namespace SAEntities
         public bool IsDeleted { get; set; }
         [Required]
         public long SequenceNumber { get; set; }
+        public bool IsShowOnCalculator { get; set; } = false;
         [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }

@@ -10,6 +10,7 @@ namespace SAPO
     public class MenuRequest
     {
         public int? Id { get; set; }
+        public bool IsShowOnCalculator { get; set; }
         public string Name { get; set; }
     }
 
