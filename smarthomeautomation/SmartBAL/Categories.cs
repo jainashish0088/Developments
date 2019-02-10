@@ -32,4 +32,23 @@ namespace SmartBAL
             throw new NotImplementedException();
         }
     }
+    public class Myclass<MyString>
+    {
+
+    }
+    public class test
+    {
+        public void tesing()
+        {
+            var obj = new Myclass<MyString>();
+        }
+        
+    }
+    class MyString
+    {
+        static MyString()
+        {
+
+        }   
+    }
 }

@@ -22,6 +22,7 @@ namespace SAPO
         public string LargeImg { get; set; }
         [MaxLength(200)]
         public string SmallImg { get; set; }
+        public bool Selected { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime CreatedDate { get; set; }

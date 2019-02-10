@@ -37,6 +37,7 @@ namespace SAPO
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
         [Required]
+        public int Quantity { get; set; }
         public long SequenceNumber { get; set; }
     }
 }

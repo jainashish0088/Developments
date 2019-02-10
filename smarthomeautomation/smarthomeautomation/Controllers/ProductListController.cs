@@ -20,5 +20,9 @@ namespace smarthomeautomation.Controllers
             products = retrieve.ListRetreive(getProduct);
             return View(products);
         }
+        public void Test()
+        {
+
+        }
     }
 }

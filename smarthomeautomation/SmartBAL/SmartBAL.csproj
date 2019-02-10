@@ -30,13 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SAEntities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="SAEntities">
       <HintPath>..\SAEntities\bin\Debug\SAEntities.dll</HintPath>
     </Reference>
-    <Reference Include="SAPO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SAPO\bin\Debug\SAPO.dll</HintPath>
+    <Reference Include="SAPO">
+      <HintPath>..\SAEntities\bin\Debug\SAPO.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

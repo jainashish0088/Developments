@@ -1,6 +1,9 @@
-﻿using SmartBAL;
+﻿using SAEntities;
+using SmartBAL;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,36 +15,56 @@ namespace smarthomeautomation.Controllers
         // GET: Calculator
         public ActionResult Index()
         {
-            SAPO.MenuRequest menu = new SAPO.MenuRequest();
+            var calculatorModel = new Models.CalculatorModel();
+            var menu = new SAPO.MenuRequest();
             menu.IsShowOnCalculator = true;
-            Retrieve<SAPO.MenuRequest, SAPO.Category> retrieve = new Retrieve<SAPO.MenuRequest, SAPO.Category>(new Categories());
-            List<SAPO.Category> categories = new List<SAPO.Category>();
-            categories = retrieve.ListRetreive(menu);
-            return View(categories);
-        }
-        public ActionResult Index(string category,string brands)
-        {
-            TempData["tdCategory"] = category;
-            TempData["tdBrands"] = brands;
-            return RedirectToAction("ProductList");
+
+            var retrieveCategories = new Retrieve<SAPO.MenuRequest, SAPO.Category>(new Categories());
+            calculatorModel.Categories = retrieveCategories.ListRetreive(menu);
+
+            var brand = new SAPO.BrandInput();
+            var retrievebrand = new Retrieve<SAPO.BrandInput, SAPO.Brands>(new SmartBAL.Brands());
+            calculatorModel.Brands = retrievebrand.ListRetreive(brand);
+
+
+            return View(calculatorModel);
         }
         [HttpPost]
-        public ActionResult Brands()
+        public ActionResult Index(Models.CalculatorModel calculatorModel)
         {
-            SAPO.BrandInput brand = new SAPO.BrandInput();
-            Retrieve<SAPO.BrandInput, SAPO.Brands> retrieve = new Retrieve<SAPO.BrandInput, SAPO.Brands>(new SmartBAL.Brands());
-            List<SAPO.Brands> lstbrands = new List<SAPO.Brands>();
-            lstbrands = retrieve.ListRetreive(brand);
-            return Json(lstbrands, JsonRequestBehavior.AllowGet);
+            Session["calculatorModel"] = calculatorModel;
+            return RedirectToAction("ProductList");
         }
         public ActionResult ProductList()
         {
-            ViewBag.category=TempData["tdCategory"];
-            ViewBag.brands= TempData["tdBrands"];
-            return View("ProductList");
+            var calculatorModel = (Models.CalculatorModel)(Session["calculatorModel"]);
+            if (calculatorModel == null)
+                return HttpNotFound();
+            //var getProduct = new SAPO.GetProduct();
+            //if (calculatorModel.Categories.Count > 0)
+            //    getProduct.CategoryName = calculatorModel.Categories[0].Name;
+            //if (calculatorModel.Brands.Count > 0)
+            //    getProduct.BrandIds = calculatorModel.Brands;
+            //Retrieve<SAPO.GetProduct, SAPO.ProductsPro> retrieve = new Retrieve<SAPO.GetProduct, SAPO.ProductsPro>(new Products());
+            //List<SAPO.ProductsPro> products = new List<SAPO.ProductsPro>();
+            //products = retrieve.ListRetreive(getProduct);
+            return View(calculatorModel);
         }
         [HttpPost]
-        public ActionResult ProductList(string CategoryName, string BrandName)  
+        public ActionResult Products(Models.CalculatorModel calculatorModel)
+        {
+            var getProduct = new SAPO.GetProduct();
+            if (calculatorModel.Categories.Count > 0)
+                getProduct.CategoryName = calculatorModel.Categories[0].Name;
+            if (calculatorModel.Brands.Count > 0)
+                getProduct.BrandIds = calculatorModel.Brands;
+            Retrieve<SAPO.GetProduct, SAPO.ProductsPro> retrieve = new Retrieve<SAPO.GetProduct, SAPO.ProductsPro>(new Products());
+            List<SAPO.ProductsPro> products = new List<SAPO.ProductsPro>();
+            products = retrieve.ListRetreive(getProduct);
+            return Json(products, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public ActionResult ProductList(string CategoryName, string BrandName)
         {
             SAPO.GetProduct getProduct = new SAPO.GetProduct();
             getProduct.CategoryName = CategoryName;
@@ -51,5 +74,7 @@ namespace smarthomeautomation.Controllers
             products = retrieve.ListRetreive(getProduct);
             return Json(products, JsonRequestBehavior.AllowGet);
         }
+
     }
+
 }

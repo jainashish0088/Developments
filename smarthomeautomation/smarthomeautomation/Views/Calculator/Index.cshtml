@@ -1,9 +1,9 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Calculator";
     Layout = null;
 }
-@model List<SAPO.Category>
+@using System.Web.Mvc.Html;
+@model smarthomeautomation.Models.CalculatorModel
 
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +51,8 @@
 
         <div class="calculator-content-wrapper col-xs-12 col-sm-7 col-md-6">
             <a href="@Url.Content("~/")"><img src="@Url.Content("~/Content/images/logo.png")" class="img-rounded center-block logo_box"></a>
-            <form method="post" id="calculatorForm">
+            @using (Html.BeginForm("Index", "Calculator", "POST"))
+            {
                 <div class="calculator-content-section">
                     <!--step 1-->
                     <div id="dvInfo1" class="section_box" style="">
@@ -62,35 +63,35 @@
                             <div class="scrollbar_box calculator_scrollbox mCustomScrollbar" data-mcs-theme="dark" style=" ">
                                 <div class="row">
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <label for="name">Name</label>
-                                        <input class="form-control" id="name" name="name" placeholder="eng: Anil Kadian" type="text">
+                                        <label for="Name">Name</label>
+                                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Name" })
                                     </div>
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <label for="email">Email</label>
-                                        <input class="form-control" id="email" name="email" placeholder="eng: abc@abc.com" type="email">
+                                        <label for="Email">Email</label>
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
                                     </div>
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <label for="mobile">Mobile No</label>
-                                        <input class="form-control" id="mobile" name="mobile" placeholder="+91" type="text">
+                                        <label for="Mobile">Mobile No</label>
+                                        @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", @placeholder = "Mobile" })
                                     </div>
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <label for="location">Location</label>
-                                        <input class="form-control" id="location" name="location" placeholder="eng: South Delhi" type="text">
+                                        <label for="Address">Location</label>
+                                        @Html.TextBoxFor(m => m.Address, new { @class = "form-control", @placeholder = "eng: South Delhi" })
                                     </div>
                                     <div class="form-group col-lg-12" style="clear:both;">
                                         <div class="property_selection">
                                             <h3>Select Your Residence Type:</h3>
                                             <ul>
                                                 <li>
-                                                    <a href="javascript:void(0)"><img src="@Url.Content("Content/images/icon/apartment_icon.png")" class="img-responsive"></a>
+                                                    <a href="javascript:void(0)"><img src="@Url.Content("~/Content/images/icon/apartment_icon.png")" class="img-responsive"></a>
                                                     <span>Apartment</span>
                                                 </li>
                                                 <li>
-                                                    <a href="javascript:void(0)" class="selected"><img src="@Url.Content("Content/images/icon/office_icon.png")" c class="img-responsive"></a>
+                                                    <a href="javascript:void(0)" class="selected"><img src="@Url.Content("~/Content/images/icon/office_icon.png")" class="img-responsive"></a>
                                                     <span>Office</span>
                                                 </li>
                                                 <li>
-                                                    <a href="javascript:void(0)"><img src="@Url.Content("Content/images/icon/bungalow_icon.png")" class="img-responsive"></a>
+                                                    <a href="javascript:void(0)"><img src="@Url.Content("~/Content/images/icon/bungalow_icon.png")" class="img-responsive"></a>
                                                     <span>Bungalow</span>
                                                 </li>
                                             </ul>
@@ -114,90 +115,28 @@
                         <div class="scrollbar_box calculator_scrollbox mCustomScrollbar" data-mcs-theme="dark" style="">
                             <div class="plan_headding">Number of rooms that needs to be automated:</div>
                             <div class="row">
-                                @foreach (var cat in Model)
+                                @for (int cat = 0; cat < Model.Categories.Count; cat++)
                                 {
                                     <div class="form-group col-md-6 col-sm-6 col-xs-6">
-                                        <label for="LivingRoom">@cat.Name</label>
+                                        <label for="@("Categories_"+cat+"__Quantity")">@Model.Categories[cat].Name</label>
                                         <span class="input-group-btn">
-                                            <button type="button" class="btn btn-danger btn-number" data-type="minus" data-field="@("Cat"+cat.Id)">
+                                            <button type="button" class="btn btn-danger btn-number" data-type="minus" data-field="@("Categories_"+cat+"__Quantity")">
                                                 <span class="glyphicon glyphicon-minus"></span>
                                             </button>
                                         </span>
-                                        <input type="text" class="form-control input-number" min="1" value="1" id="@("Cat"+cat.Id)" name="@("Cat"+cat.Id)" />
+                                        @Html.HiddenFor(m => m.Categories[cat].Name, new { @Value = Model.Categories[cat].Name })
+                                        @Html.HiddenFor(m => m.Categories[cat].Id, new { @Value = Model.Categories[cat].Id })
+                                        @Html.TextBoxFor(m => m.Categories[cat].Quantity, new { @class = "form-control input-number", @min = "0", @Value = "" })
+                                        @*<input type="text" class="form-control input-number" min="1" value="1" id="@("Cat"+Model.Category[cat].Id)" name="@("Cat"+Model.Category[cat].Id)" />*@
                                         <span class="input-group-btn">
-                                            <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="@("Cat"+cat.Id)">
+                                            <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="@("Categories_" + cat + "__Quantity")">
                                                 <span class="glyphicon glyphicon-plus"></span>
                                             </button>
                                         </span>
                                     </div>
                                 }
-                                @*<div class="form-group col-md-6 col-sm-6 col-xs-6">
-                                        <label for="BedRoom">Bed Room</label>
-                                        <select class="form-control select_dropdown" name="BedRoom" id="BedRoom">
-                                            <option value="">Select Here</option>
-                                            <option value="BedRoom1">1</option>
-                                            <option value="BedRoom2">2</option>
-                                            <option value="BedRoom3">3</option>
-                                            <option value="BedRoom4">4</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-6">
-                                        <label for="Kitchen">Kitchen</label>
-                                        <select class="form-control select_dropdown" name="Kitchen" id="LivingRoom">
-                                            <option value="">Select Here</option>
-                                            <option value="Kitchen-1">1</option>
-                                            <option value="Kitchen-2">2</option>
-                                            <option value="Kitchen-3">3</option>
-                                            <option value="Kitchen-4">4</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-6">
-                                        <label for="StudyRoom">Study Room</label>
-                                        <select class="form-control select_dropdown" name="StudyRoom" id="LivingRoom">
-                                            <option value="">Select Here</option>
-                                            <option value="StudyRoom-1">1</option>
-                                            <option value="StudyRoom-2">2</option>
-                                            <option value="StudyRoom-3">3</option>
-                                            <option value="StudyRoom-4">4</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-6">
-                                        <label for="TVRoom">TV Room</label>
-                                        <select class="form-control select_dropdown" name="TVRoom" id="TVRoom">
-                                            <option value="">Select Here</option>
-                                            <option value="TVRoom1">1</option>
-                                            <option value="TVRoom2">2</option>
-                                            <option value="TVRoom3">3</option>
-                                            <option value="TVRoom4">4</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-6">
-                                        <label for="DinningArea">Dinning Area</label>
-                                        <select class="form-control select_dropdown" name="DinningArea" id="DinningArea">
-                                            <option value="">Select Here</option>
-                                            <option value="DinningArea1">1</option>
-                                            <option value="DinningArea2">2</option>
-                                            <option value="DinningArea3">3</option>
-                                            <option value="DinningArea4">4</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-6">
-                                        <label for="WashroomRoom">Washroom Room</label>
-                                        <select class="form-control select_dropdown" name="WashroomRoom" id="WashroomRoom">
-
-                                            <option value="">Select Here</option>
-                                            <option value="WashroomRoom1">1</option>
-                                            <option value="WashroomRoom2">2</option>
-                                            <option value="WashroomRoom3">3</option>
-                                            <option value="WashroomRoom4">4</option>
-                                        </select>
-                                    </div>*@
-
                             </div>
                         </div>
-
 
                         <div class="btn_box_border">
                             <div class="row">
@@ -226,73 +165,28 @@
                         <!--scrollbar_box-->
                         <div class="scrollbar_box calculator_scrollbox mCustomScrollbar height_300" data-mcs-theme="dark" style="">
                             <div class="row" id="dvbrands">
-                                
+                                @for (int brand = 0; brand < Model.Brands.Count; brand++)
+                                {
+                                    <div class="col-xs-4 col-sm-4 col-md-4">
+                                        <div class="brand_list">
+                                            <div class="checkbox checkbox-common">
+                                                @Html.HiddenFor(m => m.Brands[brand].Id, new { @value = Model.Brands[brand].Id })
+                                                @Html.HiddenFor(m => m.Brands[brand].Name, new { @value = Model.Brands[brand].Name })
+                                                <input type="checkbox" id="@("Brands_"+brand+"__Selected")" name="Model.Brands[@brand].Selected" value="@(Model.Brands[brand].Selected ? "true": "false")" />
+                                                
+                                                <label for="@("Brands_"+brand+"__Selected")"><img src="@Url.Content("~/Content/images/brands/" + Model.Brands[brand].SmallImg)" title="@Model.Brands[brand].Name" alt="@Model.Brands[brand].Name" class="img_border img-responsive"></label>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                }
                             </div>
-
-                        </div>
-
-                        <!--scrollbar_box-->
-
-                        <div class="btn_box_border">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <button type="button" class="white_btn" onclick="return ManageYourDrive(2, 3)">Back</button>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                                    <input type="submit" value="Save Next" class="blue_btn" />
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <!--step 3 End-->
-                </div>
-            </form>
+                        </div>  <!--scrollbar_box-->  <div class="btn_box_border"> <div class="row"> <div class="col-md-6 col-sm-6 col-xs-6"> <button type="button" class="white_btn" onclick="return ManageYourDrive(2, 3)">Back</button> </div> <div class="col-md-6 col-sm-6 col-xs-6 text-right"> <input type="submit" value="Save Next" class="blue_btn" /> </div> </div> </div>
+                    </div> <!--step 3 End-->
+                </div> }
         </div>
-    </div>
-    <input type="hidden" id="category" />
-    <input type="hidden" id="brands" />
-    <!--Footer Section Start -->
-    <div class="footer p-0">
-        <div class="fotter_info mt-0 border_top">
-            <div class="container">
-                <div class="row">
-                    <!-- Footer Links -->
-                    <div class="col-md-5 col-sm-4 col-xs-12">
-                        <div class="footer-links">
-                            <p> &copy; 2018 <span>www.smarthomesolution.in</span> All Right Reversed.</p>
-                        </div>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-12">
-                        <div class="social-icons">
-                            <ul>
-                                <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li class="youtube"><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-                                <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            </ul>
-                        </div>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 hidden-xs">
-                        <div class="copyright">
-                            <p> Powered by : <a target="_blank" href="#">Smart Home Solution</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Footer Section End -->
-    <!-- Go To Top Link -->
-    <a href="#" class="back-to-top"> <i class="fa  fa-angle-double-up"></i> </a>
-    <!-- Go To Top Link -->
-
-    @Scripts.Render("~/bundles/index")
-    <script src="@Url.Content("~/scripts/js/responsive-tabs.js")"></script>
-    <script src="@Url.Content("~/scripts/js/ion.rangeSlider.js")"></script>
+    </div> <input type="hidden" id="category" /> <input type="hidden" id="brands" /> <!--Footer Section Start --> <div class="footer p-0"> <div class="fotter_info mt-0 border_top"> <div class="container"> <div class="row"> <!-- Footer Links --> <div class="col-md-5 col-sm-4 col-xs-12"> <div class="footer-links"> <p> &copy; 2018 <span>www.smarthomesolution.in</span> All Right Reversed.</p> </div> </div> <div class="col-md-3 col-sm-4 col-xs-12"> <div class="social-icons"> <ul> <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li> <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li> <li class="youtube"><a href="#"><i class="fa fa-youtube-play"></i></a></li> <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li> </ul> </div> </div> <div class="col-md-4 col-sm-4 col-xs-12 hidden-xs"> <div class="copyright"> <p> Powered by : <a target="_blank" href="#">Smart Home Solution</a></p> </div> </div> </div> </div> </div> </div> <!--Footer Section End --> <!-- Go To Top Link --> <a href="#" class="back-to-top"> <i class="fa  fa-angle-double-up"></i> </a> <!-- Go To Top Link -->  @Scripts.Render("~/bundles/index")
+    <script src="@Url.Content("~/scripts/js/responsive-tabs.js")"></script> 
+    @*<script src="@Url.Content("~/scripts/js/ion.rangeSlider.js")"></script>*@
     <script>
         function ManageYourDrive(id, total) {
             for (i = 1; i <= total; i++) {
@@ -300,6 +194,8 @@
             }
             $("#dvInfo" + id).show();
         }
+
+
         $(function () {
             $('.property_selection li a').click(function (e) {
                 $('.property_selection li a.selected').removeClass('selected');
@@ -307,14 +203,13 @@
                 $("#spnResidenceType").html($(this).siblings("span").html());
                 e.preventDefault();
             });
-            LoadData();
         });
         $('.btn-number').click(function (e) {
             e.preventDefault();
 
             fieldName = $(this).attr('data-field');
             type = $(this).attr('data-type');
-            var input = $("input[name='" + fieldName + "']");
+            var input = $("input[id='" + fieldName + "']");
             var currentVal = parseInt(input.val());
             if (!isNaN(currentVal)) {
                 if (type == 'minus') {
@@ -346,7 +241,7 @@
             maxValue = parseInt($(this).attr('max'));
             valueCurrent = parseInt($(this).val());
 
-            name = $(this).attr('name');
+            name = $(this).attr('id');
             if (valueCurrent >= minValue) {
                 $(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled')
             } else {
@@ -375,66 +270,8 @@
                 e.preventDefault();
             }
         });
-        function LoadData() {
-            $.ajax({
-                type: 'POST',
-                url: '@Url.Action("Brands")',
-            dataType: 'json',
-            data: { id: '' },
-            success: function (data) {
-                var items = '';
-                $.each(data, function (i, brand) {
-                    var rows =
-                        "<div class='col-xs-4 col-sm-4 col-md-4'>" +
-                        "<div class='brand_list'>"+
-                        "<div class='checkbox checkbox-common'>"+
-                        "<input id='" + brand.Id +"' type='checkbox'>"+
-                        "<label for='" + brand.Name +"'><img src=\"@Url.Content("~/Content/images/brands/")" + brand.SmallImg + "\" title='" + brand.Name +"' alt='" + brand.Name+"' class='img_border img-responsive'></label>"+
-                        "</div>"+
-                        "</div>"+
-                        "</div>";
-                    $('#dvbrands').append(rows);
-                });
-            },
-            error: function (ex) {
-                var r = jQuery.parseJSON(response.responseText);
-                alert("Message: " + r.Message);
-                alert("StackTrace: " + r.StackTrace);
-                alert("ExceptionType: " + r.ExceptionType);
-            }
-        });
-        return false;
-        }
-        function LoadProducts() {
-            $.ajax({
-                type: 'POST',
-                url: '@Url.Action("ProductList")',
-            dataType: 'json',
-            data: { id: '' },
-            success: function (data) {
-                var items = '';
-                $.each(data, function (i, brand) {
-                    var rows =
-                        "<div class='col-xs-4 col-sm-4 col-md-4'>" +
-                        "<div class='brand_list'>"+
-                        "<div class='checkbox checkbox-common'>"+
-                        "<input id='" + brand.Id +"' type='checkbox'>"+
-                        "<label for='" + brand.Name +"'><img src=\"@Url.Content("~/Content/images/brands/")" + brand.SmallImg + "\" title='" + brand.Name +"' alt='" + brand.Name+"' class='img_border img-responsive'></label>"+
-                        "</div>"+
-                        "</div>"+
-                        "</div>";
-                    $('#dvbrands').append(rows);
-                });
-            },
-            error: function (ex) {
-                var r = jQuery.parseJSON(response.responseText);
-                alert("Message: " + r.Message);
-                alert("StackTrace: " + r.StackTrace);
-                alert("ExceptionType: " + r.ExceptionType);
-            }
-        });
-        return false;
-    }
+
+
     </script>
 </body>
 </html>

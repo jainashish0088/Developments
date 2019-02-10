@@ -106,16 +106,14 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
-    <Reference Include="SAEntities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SAEntities\bin\Debug\SAEntities.dll</HintPath>
+    <Reference Include="SAEntities">
+      <HintPath>..\SmartBAL\bin\Debug\SAEntities.dll</HintPath>
     </Reference>
     <Reference Include="SAPO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SAPO\bin\Debug\SAPO.dll</HintPath>
+      <HintPath>..\SmartBAL\bin\Debug\SAPO.dll</HintPath>
     </Reference>
-    <Reference Include="SmartBAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="SmartBAL">
       <HintPath>..\SmartBAL\bin\Debug\SmartBAL.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -201,6 +199,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CalculatorModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -482,7 +481,6 @@
     <Folder Include="Content\img\common\" />
     <Folder Include="Content\img\glyph\" />
     <Folder Include="Content\img\icons\tabs\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -13,6 +13,7 @@ namespace SAPO
         public string Name { get; set; }
         public string CategoryName { get; set; }
         public string BrandName { get; set; }
+        public List<SAPO.Brands> BrandIds { get; set; }
     }
     public class ProductsPro
     {
