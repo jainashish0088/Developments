@@ -8,14 +8,12 @@ using System.Threading.Tasks;
 
 namespace SAEntities
 {
-    public class Category
+    public class Category : CommonProperty
     {
         public Category()
         {
             this.Products = new HashSet<Product>();
         }
-        [Key]
-        public long Id { get; set; }
         public long? CategoryId { get; set; }
         [Required, MaxLength(2000)]
         public string Name { get; set; }
@@ -33,14 +31,9 @@ namespace SAEntities
         public string SmallImg { get; set; }
         [MaxLength(5000)]
         public string LargeImg { get; set; }
-        public bool IsActive { get; set; }
-        public bool IsDeleted { get; set; }
         [Required]
         public long SequenceNumber { get; set; }
         public bool IsShowOnCalculator { get; set; } = false;
-        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime CreatedDate { get; set; }
-        public DateTime? UpdatedDate { get; set; }
-        public ICollection<Product> Products { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

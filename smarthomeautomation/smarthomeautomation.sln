@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "smarthomeautomation", "smarthomeautomation\smarthomeautomation.csproj", "{3D2AE7A4-9E93-4D41-8470-01093F765D4F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAEntities", "SAEntities\SAEntities.csproj", "{ED79238B-E7D1-4FE1-AB01-3ED49D4B3CB0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAPO", "SAPO\SAPO.csproj", "{13F587C5-8D29-4BF3-BF4E-5D98687A85A0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartBAL", "SmartBAL\SmartBAL.csproj", "{180C4D02-F774-4B58-AB92-D8DD1A3E23DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "smarthomeautomation", "smarthomeautomation\smarthomeautomation.csproj", "{2519CF95-5636-4356-B7A8-7500C5940B3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3D2AE7A4-9E93-4D41-8470-01093F765D4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D2AE7A4-9E93-4D41-8470-01093F765D4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D2AE7A4-9E93-4D41-8470-01093F765D4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D2AE7A4-9E93-4D41-8470-01093F765D4F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ED79238B-E7D1-4FE1-AB01-3ED49D4B3CB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ED79238B-E7D1-4FE1-AB01-3ED49D4B3CB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED79238B-E7D1-4FE1-AB01-3ED49D4B3CB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{180C4D02-F774-4B58-AB92-D8DD1A3E23DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{180C4D02-F774-4B58-AB92-D8DD1A3E23DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{180C4D02-F774-4B58-AB92-D8DD1A3E23DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2519CF95-5636-4356-B7A8-7500C5940B3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2519CF95-5636-4356-B7A8-7500C5940B3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2519CF95-5636-4356-B7A8-7500C5940B3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2519CF95-5636-4356-B7A8-7500C5940B3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

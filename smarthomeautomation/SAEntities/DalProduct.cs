@@ -36,6 +36,7 @@ namespace SAEntities
                 _product.ProductCode = product.ProductCode;
                 _product.ProductDesc = product.ProductDesc;
                 _product.ProductName = product.ProductName;
+                _product.NameForCalculator = product.NameForCalculator;
                 _product.ProductShortDesc = product.ProductShortDesc;
                 _product.Quantity = product.Quantity;
                 _product.ReturnDuration = product.ReturnDuration;

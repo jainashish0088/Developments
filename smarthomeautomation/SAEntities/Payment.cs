@@ -8,14 +8,9 @@ using System.Threading.Tasks;
 
 namespace SAEntities
 {
-    public class Payment
+    public class Payment : CommonProperty
     {
-        [Key]
-        public long Id { get; set; }
         public decimal Amount { get; set; }
-        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime CreatedDate { get; set; }
-        public DateTime? UpdatedDate { get; set; }
         public IList<Order> Orders { get; set; }
         public IList<PaymentDetail> PaymentDetails { get; set; }
     }

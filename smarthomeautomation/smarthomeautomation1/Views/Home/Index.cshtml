@@ -1,0 +1,458 @@
+﻿@{
+    Layout = null;
+    //ViewBag.Title = "Home Page";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="@Url.Content("~/favicon.ico")">
+    <title>Smart Home Solution</title>
+
+    <!-- Bootstrap core CSS -->
+    @Styles.Render("~/Content/css")
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../scripts/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="@Url.Content("~/scripts/ie-emulation-modes-warning.js")"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../scripts/html5shiv.min.js"></script>
+      <script src="../scripts/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="page-loader">
+        <div class="loader">Loading...</div>
+    </div>
+
+    <!--drive_your_own_choice-->
+    <div class="modal fade bs-example-modal-lg" id="drive_your_own_choice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body pt-0 pb-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <img src="@Url.Content("~/content/images/icon/close.png")" width="31" height="30">
+                    </button>
+
+                    <div class="calculator-form row">
+                        <div class="calculator-image-wrapper col-xs-12 col-sm-5 col-md-6 hidden-xs" style="min-height:500px;">&nbsp;</div>
+                        <div class="calculator-content-wrapper col-xs-12 col-sm-7 col-md-6 pt-50">
+
+                            <div class="drive_your_own_choice">
+                                <h2 class="section-title">Drive your own Choice</h2>
+                                <div class="introduction_detail">
+                                    Offering various Type and multiple Automation Produts, we let you put a personal touch on your
+                                    Dream Home..
+                                </div>
+                                <div class="btn_box text-center">
+                                    <a class="blue_btn btn_min_width" href="@Url.Content("~/calculator")" target="_blank">Get Started</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--drive_your_own_choice-->
+    <!--search_modal-->
+    <div class="modal fade" id="search_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <img src="@Url.Content("~/content/images/icon/close.png")" width="31" height="30">
+                    </button>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="So, What are you looking for?" value="" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--search_modal_End-->
+    <!--free_quote-->
+    <div class="modal fade bs-example-modal-lg" id="free_quote_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <img src="@Url.Content("~/content/images/icon/close.png")" class="img-responsive"> </button>
+                    <div class="section-header">
+                        <h2 class="section-title">GET A FREE QUOTE</h2>
+                    </div>
+                    <p class="gray_bg">Fill out the form and our Specialist will contact you at the phone number provided.</p>
+
+                    <div>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="first-name">First Name</label>
+                                        <input type="text" class="form-control" id="first-name" placeholder="e.g. Jane">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="last-name">Last Name:</label>
+                                        <input type="text" class="form-control" id="last-name" placeholder="e.g. Doe">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" id="email" placeholder="e.g. jane.doe@example.com">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="mobile">Mobile</label>
+                                        <input type="text" class="form-control" id="mobile" placeholder="e.g. 9313555527">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="message">Message</label>
+                                        <textarea class="form-control" name="message" id="message" rows="6" placeholder="Message"></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="blue_btn">Submit <i class="fa fa-angle-right"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--free_quote-->
+    <!--Sign_in_modal-->
+    <div class="modal fade bs-example-modal-lg" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <img src="@Url.Content("~/content/images/icon/close.png")" class="img-responsive"> </button>
+                    <div>
+                        <div class="tab_section">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a href="#sign_in" aria-controls="sign_in" role="tab"
+                                       data-toggle="tab">Sign In</a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#sign_up" aria-controls="sign_up" role="tab"
+                                       data-toggle="tab">Sign Up</a>
+                                </li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade in active" id="sign_in">
+                                    <div class="row">
+                                        <div class="col-md-7 col-sm-6 col-xs-12 mid_vertical_border pt-20 pd-20">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail2">Email</label>
+                                                    <input type="email" class="form-control" id="exampleInputEmail2"
+                                                           placeholder="jane.doe@example.com">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputPassword3">Password</label>
+                                                    <input type="password" class="form-control" id="inputPassword3"
+                                                           placeholder="Password">
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="checkbox checkbox-common">
+                                                        <input id="RememberMe" type="checkbox">
+                                                        <label for="RememberMe"> Remember Me</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <button type="submit" class="blue_btn">Sign in <i class="fa fa-angle-right"></i></button>
+                                                </div>
+                                                <div class="help-block mg-t20"><a href="">Forget the password ?</a></div>
+                                            </form>
+                                        </div>
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <h4 class="mg-t0 mg-b10">Login with Social Site</h4>
+                                            <div class="fb_btn">
+                                                <a href="#">
+                                                    <i class="fa fa-facebook"></i>
+                                                    <lable>Sign in with Facebook</lable>
+                                                </a>
+                                            </div>
+                                            <div class="twitter_btn">
+                                                <a href="#">
+                                                    <i class="fa fa-twitter"></i>
+                                                    <lable>Sign in with Twitter</lable>
+                                                </a>
+                                            </div>
+                                            <div class="email_btn">
+                                                <a href="#">
+                                                    <i class="fa fa-envelope-o"></i>
+                                                    <lable>Sign in with Email</lable>
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--SHow-->
+                                <div role="tabpanel" class="tab-pane fade" id="sign_up">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label for="first-name">First Name</label>
+                                                    <input type="text" class="form-control" id="first-name" placeholder="e.g. Jane">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label for="last-name">Last Name:</label>
+                                                    <input type="text" class="form-control" id="last-name" placeholder="e.g. Doe">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label for="email">Email</label>
+                                                    <input type="email" class="form-control" id="email" placeholder="e.g. jane.doe@example.com">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label for="mobile">Mobile</label>
+                                                    <input type="text" class="form-control" id="mobile" placeholder="e.g. 9313555527">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label for="mobile">Address</label>
+                                                    <input type="text" class="form-control" id="mobile" placeholder="e.g. Address">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label for="password">Password</label>
+                                                    <input type="password" class="form-control" id="password"
+                                                           placeholder="Password">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label for="ConfirmPassword">Confirm Password</label>
+                                                    <input type="password" class="form-control" id="ConfirmPassword"
+                                                           placeholder="Confirm Password">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="blue_btn">Sign Up <i class="fa fa-angle-right"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--SHow-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Sign_in_modal_End-->
+    @{ Html.RenderAction("Header", "Shared");}
+
+    <!-- Full Page Image Background Carousel Header -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('../Content/images/slider/banner.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2 class="animated fadeInDown">Home Automation</h2>
+                    <p class="animated fadeInUp">
+                        A Touch of Convenience, Comfort and<br>
+                        Energy efficiency...
+                    </p>
+
+                    <p class="animated fadeInUp">
+                        <!--<a href="#" class="blue_btn"> Shop Now <i class="fa fa-angle-right"></i></a>-->
+                        <a href="#" class="white_btn"> Explore Now <i class="fa fa-angle-right"></i></a>
+                    </p>
+                </div>
+            </div>
+            @*<div class="item">
+                    <!-- Set the second background image using inline CSS below. -->
+                    <div class="fill" style="background-image:url('../Content/images/slider/banner2.jpg');"></div>
+                    <div class="carousel-caption">
+                        <h2 class="animated fadeInDown">Home Automation</h2>
+                        <p class="animated fadeInUp">
+                            A Touch of Convenience, Comfort and<br>
+                            Energy efficiency...
+                        </p>
+
+                        <p class="animated fadeInUp">
+                            <!--<a href="#" class="blue_btn"> Shop Now <i class="fa fa-angle-right"></i></a>-->
+                            <a href="#" class="white_btn"> Explore Now <i class="fa fa-angle-right"></i></a>
+                        </p>
+                    </div>
+                </div>*@
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+
+    </div>
+    <!-- Full Page Image Background Carousel Header End -->
+    @{ Html.RenderAction("FeaturedCategory", "Shared");}
+    @{ Html.RenderAction("TopSeller", "Shared");}
+    @{ Html.RenderAction("PopularProducts", "Shared");}
+    <!--drive_your_own_choice_section_start -->
+
+    <section class="drive_your_own_choice_section">
+        <div class="container">
+            <h2 class="section-title">Drive your own Choice</h2>
+            <div class="introduction_detail">
+                Offering various Type and multiple Automation Produts, we let you put a personal touch on your
+                Dream Home..
+            </div>
+            <div class="btn_box text-center">
+                <a class="white_border_btn btn_min_width" href="calculator.html" target="_blank">Get Started</a>
+            </div>
+        </div>
+    </section>
+    <!--Khwahish_Introduction_section_End -->
+    @{ Html.RenderAction("Brands", "Shared");}
+    <!--Coustomer_newsletter_Section_Start -->
+    <!--<section class="coustomer_newsletter_section">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                    <div class="coustomer_speaks_section">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <div class="section-header">
+                                <h2 class="section-title">Coustomer Speaks...</h2>
+                                <div class="carousel_control_box">
+                                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                        <img src="../Content/images/icon/prev.png">
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                        <img src="../Content/images/icon/next.png">
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="client_comment">
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="item active">
+                                        <p>1 We got our new house entire AV done from Solution Tree , I got my background wireless much done for 3 floors , 12 seater Home Theatre with acoustics in my basement ,along with the lounge with party music solution. Me and my family are extremely happy with the delivery and recommend them for there expertise in this field , especially the after sales response is quite impressive.</p>
+                                        <p class="clent_name">-Nigam, <span>Noida</span></p>
+                                    </div>
+
+                                    <div class="item">
+                                        <p>2 We got our new house entire AV done from Solution Tree , I got my background wireless much done for 3 floors , 12 seater Home Theatre with acoustics in my basement ,along with the lounge with party music solution. Me and my family are extremely happy with the delivery and recommend them for there expertise in this field , especially the after sales response is quite impressive.</p>
+                                        <p class="clent_name">-Nigam, <span>Noida</span></p>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="subscribe_now_section">
+                        <div class="section-header">
+                            <h2 class="section-title">Subscribe To Newsletter</h2>
+                        </div>
+                        <h4>Get latest news &amp; update from</h4>
+                        <h2>smarthomesolution.in</h2>
+                        <div class="input-group">
+                            <input class="form-control" placeholder="Enter Your Emil-id / Mobile Number" type="text">
+                            <span class="input-group-btn">
+                                <button class="subscribe_now_btn" type="button">Subscribe Now!</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </section>-->
+    <!--coustomer_newsletter_section_End -->
+    <!--free_shipping_section-->
+    <div class="free_shipping_section">
+        <div class="container">
+            <div class="row">
+                <!--<div class="col-md-4 col-sm-4 col-xs-12">
+                    <i><img src="../Content/images/icon/free_shipping.png" alt="FreeShipping"></i>
+                    <span><strong>Free Shipping</strong><br>On Orders Over $99</span>
+                </div>-->
+                <!--<div class="col-md-4 col-sm-4 col-xs-12">
+                    <i><img src="../Content/images/icon/gift_icon.png" alt="FreeShipping"></i>
+                    <span><strong>Extra Saving in Stores</strong><br>Give The Perfect Gift</span>
+                </div>-->
+
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <i><img src="../Content/images/icon/contct_icon.png" alt="FreeShipping"></i>
+                    <span><strong>24/ 7 online support</strong><br>Anywhere worldwide</span>
+                </div>
+
+
+            </div><!-- /.row -->
+        </div>
+    </div>
+    <!--free_shipping_section_End-->
+    @Html.Partial("_Footer")
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    @Scripts.Render("~/bundles/index")
+    <script>
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('.scroll-up').fadeIn();
+            } else {
+                $('.scroll-up').fadeOut();
+            }
+        });
+        (function () {
+            $(function () {
+                /* ----------------------------------------------Scroll top---------------------------------------------- */
+                $('a[href="#totop"]').click(function () {
+                    $('html, body').animate({ scrollTop: 0 }, 'slow');
+                    return false;
+                });
+                $('#drive_your_own_choice').modal('show');
+            });
+        })(jQuery);
+    </script>
+</body>
+</html>

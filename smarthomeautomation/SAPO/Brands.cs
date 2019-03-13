@@ -13,7 +13,7 @@ namespace SAPO
     }
     public class Brands
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         [MaxLength(200)]
         public string Name { get; set; }
         [MaxLength(2000)]

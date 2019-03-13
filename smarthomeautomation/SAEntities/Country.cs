@@ -8,19 +8,12 @@ using System.Threading.Tasks;
 
 namespace SAEntities
 {
-    public class Country
+    public class Country : CommonProperty
     {
-        [Key]
-        public int Id { get; set; }
         [Required, MaxLength(200)]
         public string Name { get; set; }
         [Required, MaxLength(10)]
         public string Code { get; set; }
-        public bool IsActive { get; set; }
-        public bool IsDeleted { get; set; }
-        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime CreatedDate { get; set; }
-        public DateTime? UpdatedDate { get; set; }
         public IList<State> States { get; set; }
 
     }

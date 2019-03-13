@@ -8,19 +8,21 @@ using System.Threading.Tasks;
 
 namespace SAEntities
 {
-    public class Product
+    public class Product : CommonProperty
     {
         public Product()
         {
+            this.CalulatorCategory = new HashSet<CalulatorCategory>();
             //this.ProductCategoryRels = new HashSet<ProductCategoryRel>();
             this.Categories = new HashSet<Category>();
             this.OrderDetails = new HashSet<OrderDetail>();
             this.ShoppingCartDetails = new HashSet<ShoppingCartDetail>();
+
         }
-        [Key]
-        public long Id { get; set; }
         [MaxLength(1000)]
         public string ProductName { get; set; }
+        [MaxLength(1000)]
+        public string NameForCalculator { get; set; }
         [MaxLength(200)]
         public string ProductCode { get; set; }
         [MaxLength(2000)]
@@ -34,14 +36,10 @@ namespace SAEntities
         public decimal Tax { get; set; }
         public bool AllowReturn { get; set; }
         public int ReturnDuration { get; set; }
-        public bool IsActive { get; set; }
-        public bool IsDeleted { get; set; }
-        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime CreatedDate { get; set; }//save GMT Time 0
-        public DateTime? UpdatedDate { get; set; }//save GMT Time 0
         public short ISDiscOnPercOrValue { get; set; } //default -1
         public IList<ProductGallery> ProductGalleries { get; set; }
         public ICollection<Category> Categories { get; set; }
+        public ICollection<CalulatorCategory> CalulatorCategory { get; set; }
         public Supplier Supplier { get; set; }
         public Brand Brand { get; set; }
         public ICollection<OrderDetail> OrderDetails { get; set; }

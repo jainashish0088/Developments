@@ -8,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace SAEntities
 {
-    public class ProductGallery
+    public class ProductGallery : CommonProperty
     {
-        [Key]
-        public long Id { get; set; }
         [Required, ForeignKey("Product")]
         public long ProductID { get; set; }
         [MaxLength(500)]
@@ -21,10 +19,6 @@ namespace SAEntities
         [MaxLength(2000)]
         public string GalleryImg { get; set; }
         public bool ShowOnListing { get; set; }
-        public bool IsActive { get; set; }
-        public bool IsDeleted { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime? UpdatedDate { get; set; }
         public Product Product { get; set; }
     }
 }

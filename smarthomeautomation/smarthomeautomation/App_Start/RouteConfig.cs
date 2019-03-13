@@ -13,17 +13,11 @@ namespace smarthomeautomation
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapMvcAttributeRoutes();
-            //routes.MapRoute(
-            //    name: "ProductCategory",
-            //    url: "categories/{action}/{CategoryName}",
-            //    defaults: new { controller = "ProductList", action = "Index"}
-            //);
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
-            
         }
     }
 }

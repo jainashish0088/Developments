@@ -8,14 +8,12 @@ using System.Threading.Tasks;
 
 namespace SAEntities
 {
-    public class OrderDetail
+    public class OrderDetail : CommonProperty
     {
         public OrderDetail()
         {
             this.Products = new HashSet<Product>();
         }
-        [Key]
-        public long Id { get; set; }
         public long OrderId { get; set; }
         public ICollection<Product> Products { get; set; }
         [MaxLength(1000)]
@@ -30,9 +28,6 @@ namespace SAEntities
         //public bool ReturnDuration { get; set; }
         //public bool CouponCode { get; set; }
         //public bool IsCancelled { get; set; }
-        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime CreatedDate { get; set; }
-        public DateTime? UpdatedDate { get; set; }
         public IList<PaymentDetail> PaymentDetails { get; set; }
 
     }

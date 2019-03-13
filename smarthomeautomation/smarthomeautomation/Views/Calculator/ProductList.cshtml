@@ -144,12 +144,12 @@
                                 "<div class='product_list'>" +
                                     "<div class='prduct_img_box'>" +
                                         "<div class='checkbox checkbox-common'>" +
-                                            "<input onclick='event.stopPropagation()' id='prod" + brand.Id +"' type='checkbox'>" +
-                            "<label onclick='event.stopPropagation()' for='prod" + brand.Id + "' id='lblProd" + brand.Id +"'><img src=\"@Url.Content("~/Content/images/product_image/")" + brand.ProductGalleries[0].GalleryImg + "\" title='img' alt='img' class='img-responsive product_img'></label>" +
+                                            //"<input onclick='event.stopPropagation()' id='prod" + brand.Id +"' type='checkbox'>" +
+                            @*"<label onclick='event.stopPropagation()' for='prod" + brand.Id + "' id='lblProd" + brand.Id +"'><img src=\"@Url.Content("~/Content/images/product_image/")" + brand.ProductGalleries[0].GalleryImg + "\" title='img' alt='img' class='img-responsive product_img'></label>" +*@
                                         "</div>" +
                                     "</div>" +
                                     "<div class='product_detail_box'>" +
-                            "<h1><a href='javascript:void(0)' onclick='event.stopPropagation()' id='aProdName" + brand.Id +"'>" + brand.ProductName+"</a></h1>" +
+                            "<h1><a href='javascript:void(0)' onclick='event.stopPropagation()' id='aProdName" + brand.Id + "'>" + brand.NameForCalculator+"</a></h1>" +
                                     "</div>" +
                                     "<ul class='price_box row'>" +
                             "<li> <i class='fa fa-rupee'></i> <span id='spnPrice" + brand.Id +"'>" + brand.SellingPrice+" /-</span> </li>" +

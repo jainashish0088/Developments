@@ -1,0 +1,241 @@
+﻿
+@{
+    ViewBag.Title = "ProductList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model smarthomeautomation.Models.CalculatorModel
+
+<!--innre_page_section_Start -->
+<section class="inner_page_section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Products Calculator</h2>
+        </div>
+        <div class="calculator_box">
+            <!--product_tab_section-->
+            <div class="tab_section">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs responsive" role="tablist">
+                    @for (int cat = 0; cat < Model.Categories.Count; cat++)
+                    {
+                        <li role="presentation" class="active"><a href="#@Model.Categories[cat].Id" aria-controls="Living_Room" role="tab" data-toggle="tab">@Model.Categories[cat].Name <span>(@Model.Categories[cat].Quantity)</span></a></li>
+                    }
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content responsive">
+                    <div class="row">
+                        <!--left_part-->
+                        <div class="col-xs-12 col-sm-7 col-md-8">
+                            <!--Living_Room tab-->
+                            @for (int cat = 0; cat < Model.Categories.Count; cat++)
+                            {
+                                <div role="tabpanel" class="tab-pane fade in active" id="@("cat"+Model.Categories[cat].Id)" onclick="LoadProducts('@Model.Categories[cat].Name','@Model.Categories[cat].Id')">
+                                    @*<div class="sorting_filter"> <a href="#" class="active">All</a> <a href="#">Lights On/Off</a> <a href="#">Lights Dimmer</a> <a href="#">RGB Control</a> <a href="#">Fan</a> <a href="#">AC On/Off</a> <a href="#">Curtain Roller Shutter</a> <a href="#">Motion Sensor</a> </div>*@
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <div class="row" id="@("catpro"+Model.Categories[cat].Id)">
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <!--left_part_end-->
+                        <!--right_part-->
+                        <div class="col-xs-12 col-sm-5 col-md-4" id="dvCalculatorcart">
+                            <div class="cart_box_outer">
+                                <div class="cart_container clearfix" id="dvCartProduct">
+                                    <div class="small-header">
+                                        <h2 class="section-title">Selected Products</h2>
+                                    </div>
+
+
+
+                                </div>
+                                <div class="total_box clearfix">
+                                    <ul class="clearfix">
+                                        <li>Total Payable</li>
+                                        <li><i class="fa fa-rupee"></i><span id="spnTotalPrice"></span> /-</li>
+                                    </ul>
+                                    <p>Prices are inclusive of all taxes</p>
+                                </div>
+                            </div>
+
+                            <div class="btn_box m-0">
+                                <a type="submit" href="javascript:void(0);" onclick="SendQuery()" class="blue_btn btn-block">Save And Next</a>
+                            </div>
+
+                            <!--totle_cart_value-->
+                            @*<div class="cart_box_outer">
+                                <div class="cart_container clearfix">
+                                    <div class="small-header">
+                                        <h2 class="section-title">Tatal Cart Value</h2>
+                                    </div>
+
+                                    <div class="section_cost_box clearfix">
+                                        <ul class="clearfix">
+                                            <li>Tatal Payable</li>
+                                            <li><i class="fa fa-rupee"></i> 20,999/-</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                                <div class="total_box clearfix">
+                                    <ul class="clearfix">
+                                        <li>Tatal Payable</li>
+                                        <li><i class="fa fa-rupee"></i> 20,999/-</li>
+                                    </ul>
+                                    <p>Prices are inclusive of all taxes</p>
+                                </div>
+                            </div>*@
+                            <!--totle_cart_value_end-->
+                        </div>
+                        <div class="col-xs-12 col-sm-5 col-md-4" id="dvmessage" style="display:none">
+                            Thank You!
+                        </div>
+                        <!--right_part_end-->
+                    </div>
+                    <!--Living_Room tab-->
+
+                </div>
+            </div>
+            <!--product_detail_tab_section-->
+        </div>
+
+    </div>
+    <input type="hidden" id="hdcategory" value="" />
+    <input type="hidden" id="hdbrands" value="" />
+</section>
+@section Scripts{
+    <script src="@Url.Content("~/Scripts/js/ion.rangeSlider.js")"></script>
+    <script>
+        var cart = [];
+    $(function () {
+        $(".tab-pane").click();
+    });
+    function LoadProducts(catName, catId) {
+        var calculatorModel = new Object();
+        calculatorModel.Name = "";
+        calculatorModel.Email = "";
+        calculatorModel.Mobile = "";
+        calculatorModel.Address = "";
+        calculatorModel.PropertyType = "";
+        calculatorModel.Categories = [];
+        calculatorModel.Brands = [];
+        var Category = new Object();
+        Category.Id = catId;
+        Category.Name = catName;
+        Category.ShortDesc = "";
+        calculatorModel.Categories[0] = Category;
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("Products")',
+                dataType: 'json',
+                data: { calculatorModel },
+                success: function (data) {
+                    var items = '';
+                    $.each(data, function (i, brand) {
+                        var rows =
+                            "<div class='col-md-3 col-sm-4 col-xs-6' id='product" + brand.Id +"'>" +
+                                "<div class='product_list'>" +
+                                    "<div class='prduct_img_box'>" +
+                                        "<div class='checkbox checkbox-common'>" +
+                                            "<input onclick='event.stopPropagation()' id='prod" + brand.Id +"' type='checkbox'>" +
+                            "<label onclick='event.stopPropagation()' for='prod" + brand.Id + "' id='lblProd" + brand.Id +"'><img src=\"@Url.Content("~/Content/images/product_image/")" + brand.ProductGalleries[0].GalleryImg + "\" title='img' alt='img' class='img-responsive product_img'></label>" +
+                                        "</div>" +
+                                    "</div>" +
+                                    "<div class='product_detail_box'>" +
+                            "<h1><a href='javascript:void(0)' onclick='event.stopPropagation()' id='aProdName" + brand.Id +"'>" + brand.ProductName+"</a></h1>" +
+                                    "</div>" +
+                                    "<ul class='price_box row'>" +
+                            "<li> <i class='fa fa-rupee'></i> <span id='spnPrice" + brand.Id +"'>" + brand.SellingPrice+" /-</span> </li>" +
+                            "<li class='text-center'><a href='javascript:void(0)' onclick=\"AddtoCart('" + brand.Id +"');event.stopPropagation();\"><img src=\"../Content/images/icon/add_to_calculator.png\"></a> </li>" +
+                                    "</ul>" +
+                                "</div>" +
+                            "</div>";
+
+                        $('#catpro' + catId).append(rows);
+});
+                },
+                error: function (ex) {
+                    var r = jQuery.parseJSON(response.responseText);
+                    alert("Message: " + r.Message);
+                    alert("StackTrace: " + r.StackTrace);
+                    alert("ExceptionType: " + r.ExceptionType);
+                }
+            });
+            return false;
+        }
+        function AddtoCart(productid) {
+            var cartlen = 0;
+            var chkCart = true;
+                for (var i = 0; i < cart.length; i++) {
+                    if (cart[i].ProductId == productid){
+                        chkCart = false;
+                    }
+                }
+                if (chkCart == false)
+                    return false;
+            cartlen = cart.length;
+            var cartdetail = new Object();
+            cartdetail.ProductId = productid;
+            cartdetail.SellingPrice = $("#spnPrice" + productid).html().replace("-", "").replace("/", "");
+            cartdetail.Quantity = 1;
+            cart[cartlen] = cartdetail;
+            $("#dvmessage").hide();
+            $("#dvCalculatorcart").show();
+            var product = "<div class='item_list' id='cartprod" + productid + "'>" +
+                "<div class='img_box'>" +
+                "<a href='javascript:void(0)'>" + $("#lblProd" + productid).html() + "</a>" +
+                "</div>" +
+                "<div class='item_detail' > " +
+                "<a class='remove_icon' href='javascript:void(0)' onclick=\"RemoveFromCart('" + productid + "')\"> <i class='fa fa-trash-o'></i></a > " +
+                "   <div class='item_name' > " + $("#aProdName" + productid).html() + "</div > " +
+                "      <ul class='price_box clearfix' > " +
+                "         <li > " +
+                "        <div class='form-group' > " +
+                "           <label for='qty' > QTY:</label > " +
+                "              <select name= 'qty' id= 'qty' class='form-control select_dropdown' > " +
+                "                 <option value= '1' > 1</option > " +
+                //"                    <option value= '2' > 2</option > " +
+                "       </select > " +
+                "  </div > " +
+                "</li> " +
+                "       <li> <i class='fa fa-rupee'></i> " + $("#spnPrice" + productid).html() + "</li > " +
+                "</ul > " +
+                "</div > " +
+                "</div > ";
+            $("#dvCartProduct").append(product);
+            var total = 0.00;
+            for (var i = 0; i < cart.length; i++) {
+                total += parseFloat(cart[i].SellingPrice);
+            }
+            $("#spnTotalPrice").html(total);
+        }
+        function RemoveFromCart(productid) {
+            for (var i = 0; i < cart.length; i++) {
+                if (cart[i].ProductId == productid) {
+                    cart.splice(i,1);
+                    break;
+                }
+            }
+            $("#cartprod" + productid).remove();
+            var total = 0;
+            for (var i = 0; i < cart.length; i++) {
+                total += parseFloat(cart[i].SellingPrice);
+            }
+            $("#spnTotalPrice").html(total);
+        }
+        function SendQuery() {
+            $("#dvmessage").show();
+            $("#dvCalculatorcart").hide();
+            $("#dvCartProduct").html("");
+            cart.splice(0, cart.length);
+        }
+    </script>
+}
+<!--innre_page_section_Start_end -->

@@ -8,14 +8,9 @@ using System.Threading.Tasks;
 
 namespace SAEntities
 {
-    public class ShoppingCart
+    public class ShoppingCart : CommonProperty
     {
-        [Key]
-        public long Id { get; set; }
         public Customer Customer { get; set; }
-        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime CreatedDate { get; set; }
-        public DateTime? UpdatedDate { get; set; }
         public IList<ShoppingCartDetail> ShoppingCartDetails { get; set; }
     }
 }

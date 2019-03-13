@@ -8,20 +8,12 @@ using System.Threading.Tasks;
 
 namespace SAEntities
 {
-    public class Role
+    public class Role : CommonProperty
     {
-        [Key]
-        public int Id { get; set; }
         [MaxLength(30)]
         public string Name { get; set; }
         [MaxLength(200)]
         public string Desc { get; set; }
-        public bool IsActive { get; set; }
-        public bool IsDeleted { get; set; }
-        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime CreatedDate { get; set; }
-        public DateTime? UpdatedDate { get; set; }
         public IList<UserRoleRel> UserRoleRel { get; set; }
-
     }
 }

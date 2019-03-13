@@ -1,0 +1,482 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>Smart Home Solution</title>
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/innercss")
+    <!-- google-font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+          <script src="js/html5shiv.min.js"></script>
+          <script src="js/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <div class="page-loader">
+        <div class="loader">Loading...</div>
+    </div>
+
+    <!--Side_filter_for_mobile -->
+    <div class="mobile-fixed-footer">
+        <button type="button" class="open-overlay">Filter</button>
+    </div>
+    <section class="overlay-div" aria-hidden="true">
+
+        <div>
+            <button type="button" class="close-overlay">x</button>
+            <div class="side_filters mobile_filter">
+                <div class="category_box">
+                    <h1>Categories</h1>
+                    <div class="scrollbar_box mCustomScrollbar" data-mcs-theme="dark" style="">
+                        <ul>
+                            <li class="checkbox checkbox-common">
+                                <input id="HomeTheatre1" type="checkbox">
+                                <label for="HomeTheatre1"> Home Theatre  (87)</label>
+                            </li>
+                            <li class="checkbox checkbox-common">
+                                <input id="HomeSecurity1" type="checkbox">
+                                <label for="HomeSecurity1"> Home Security (2)</label>
+                            </li>
+                            <li class="checkbox checkbox-common">
+                                <input id="HomeAutomation1" type="checkbox">
+                                <label for="HomeAutomation1">Home Automation (40)</label>
+                            </li>
+                            <li class="checkbox checkbox-common">
+                                <input id="Sound1" type="checkbox">
+                                <label for="Sound1"> Sound (37)</label>
+                            </li>
+                            <li class="checkbox checkbox-common">
+                                <input id="AccessControl1" type="checkbox">
+                                <label for="AccessControl1"> Access Control (11)</label>
+                            </li>
+                            <li class="checkbox checkbox-common">
+                                <input id="WirelessProducts1" type="checkbox">
+                                <label for="WirelessProducts1"> Wireless Products (16)</label>
+                            </li>
+                            <li class="checkbox checkbox-common">
+                                <input id="Test2" type="checkbox">
+                                <label for="Test2"> Test 2</label>
+                            </li>
+                            <li class="checkbox checkbox-common">
+                                <input id="Test3" type="checkbox">
+                                <label for="Test3"> Test 3</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="category_box">
+                    <h1>By Brand</h1>
+                    <div class="scrollbar_box mCustomScrollbar" data-mcs-theme="dark" style="">
+                        <ul>
+                            <li class="checkbox checkbox-common">
+                                <input id="Sony1" type="checkbox">
+                                <label for="Sony1"> Sony (52)</label>
+                            </li>
+                            <li class="checkbox checkbox-common">
+                                <input id="Philips1" type="checkbox">
+                                <label for="Philips1"> Philips (25)</label>
+                            </li>
+                            <li class="checkbox checkbox-common">
+                                <input id="Epson1" type="checkbox">
+                                <label for="Epson1"> Epson (54)</label>
+                            </li>
+                            <li class="checkbox checkbox-common">
+                                <input id="JVC1" type="checkbox">
+                                <label for="JVC1"> JVC (34)</label>
+                            </li>
+                            <li class="checkbox checkbox-common">
+                                <input id="Onkyo1" type="checkbox">
+                                <label for="Onkyo1"> Onkyo (40)</label>
+                            </li>
+                            <li class="checkbox checkbox-common">
+                                <input id="Pioneer1" type="checkbox">
+                                <label for="Pioneer1"> Pioneer (20)</label>
+                            </li>
+                            <li class="checkbox checkbox-common">
+                                <input id="b_w1" type="checkbox">
+                                <label for="b_w1"> B&amp;W (80)</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="category_box">
+                    <h1>Price</h1>
+                    <div>
+
+                        <input type="text" id="price_range2" value="" name="price_range" />
+                    </div>
+                </div>
+
+                <div class="btn_box text-center">
+                    <button type="submit" class="black_btn">Submit</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+
+    <!--Side_filter_for_mobile_END-->
+    <!--search_modal-->
+    <div class="modal fade" id="search_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <img src="../content/images/icon/close.png" width="31" height="30">
+                    </button>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="So, What are you looking for?" value="" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--search_modal_End-->
+    <!--free_quote-->
+    <div class="modal fade bs-example-modal-lg" id="free_quote_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <img src="../content/images/icon/close.png" class="img-responsive"> </button>
+                    <div class="section-header">
+                        <h2 class="section-title">GET A FREE QUOTE</h2>
+                    </div>
+                    <p class="gray_bg">Fill out the form and our Specialist will contact you at the phone number provided.</p>
+
+                    <div>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="first-name">First Name</label>
+                                        <input type="text" class="form-control" id="first-name" placeholder="e.g. Jane">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="last-name">Last Name:</label>
+                                        <input type="text" class="form-control" id="last-name" placeholder="e.g. Doe">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" id="email" placeholder="e.g. jane.doe@example.com">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="mobile">Mobile</label>
+                                        <input type="text" class="form-control" id="mobile" placeholder="e.g. 9313555527">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="message">Message</label>
+                                        <textarea class="form-control" name="message" id="message" rows="6" placeholder="Message"></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="blue_btn">Submit <i class="fa fa-angle-right"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--free_quote-->
+    <!--Sign_in_modal-->
+    <div class="modal fade bs-example-modal-lg" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <img src="../content/images/icon/close.png" class="img-responsive"> </button>
+                    <div>
+                        <div class="tab_section">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a href="#sign_in" aria-controls="sign_in" role="tab"
+                                       data-toggle="tab">Sign In</a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#sign_up" aria-controls="sign_up" role="tab"
+                                       data-toggle="tab">Sign Up</a>
+                                </li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade in active" id="sign_in">
+                                    <div class="row">
+                                        <div class="col-md-7 col-sm-6 col-xs-12 mid_vertical_border pt-20 pd-20">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail2">Email</label>
+                                                    <input type="email" class="form-control" id="exampleInputEmail2"
+                                                           placeholder="jane.doe@example.com">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputPassword3">Password</label>
+                                                    <input type="password" class="form-control" id="inputPassword3"
+                                                           placeholder="Password">
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="checkbox checkbox-common">
+                                                        <input id="RememberMe" type="checkbox">
+                                                        <label for="RememberMe"> Remember Me</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <button type="submit" class="blue_btn">Sign in <i class="fa fa-angle-right"></i></button>
+                                                </div>
+                                                <div class="help-block mg-t20"><a href="">Forget the password ?</a></div>
+                                            </form>
+                                        </div>
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <h4 class="mg-t0 mg-b10">Login with Social Site</h4>
+                                            <div class="fb_btn">
+                                                <a href="#">
+                                                    <i class="fa fa-facebook"></i>
+                                                    <lable>Sign in with Facebook</lable>
+                                                </a>
+                                            </div>
+                                            <div class="twitter_btn">
+                                                <a href="#">
+                                                    <i class="fa fa-twitter"></i>
+                                                    <lable>Sign in with Twitter</lable>
+                                                </a>
+                                            </div>
+                                            <div class="email_btn">
+                                                <a href="#">
+                                                    <i class="fa fa-envelope-o"></i>
+                                                    <lable>Sign in with Email</lable>
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--SHow-->
+                                <div role="tabpanel" class="tab-pane fade" id="sign_up">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label for="first-name">First Name</label>
+                                                    <input type="text" class="form-control" id="first-name" placeholder="e.g. Jane">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label for="last-name">Last Name:</label>
+                                                    <input type="text" class="form-control" id="last-name" placeholder="e.g. Doe">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label for="email">Email</label>
+                                                    <input type="email" class="form-control" id="email" placeholder="e.g. jane.doe@example.com">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label for="mobile">Mobile</label>
+                                                    <input type="text" class="form-control" id="mobile" placeholder="e.g. 9313555527">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label for="mobile">Address</label>
+                                                    <input type="text" class="form-control" id="mobile" placeholder="e.g. Address">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label for="password">Password</label>
+                                                    <input type="password" class="form-control" id="password"
+                                                           placeholder="Password">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label for="ConfirmPassword">Confirm Password</label>
+                                                    <input type="password" class="form-control" id="ConfirmPassword"
+                                                           placeholder="Confirm Password">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="blue_btn">Sign Up <i class="fa fa-angle-right"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--SHow-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Sign_in_modal_End-->
+    @{ Html.RenderAction("Header", "Shared");}
+    <!-- Main Image Section Header -->
+    <div class="main_image_section listing_banner">
+        <div class="container">
+            <div class="banner-caption position-relative">
+                <h2 class="animated fadeInDown">Home Automation</h2>
+                <p class="animated fadeInUp">A Touch of Convenience, Comfort and Energy efficiency...</p>
+
+                <p class="animated fadeInUp">
+                    <a href="#" class="blue_btn"> Shop Now <i class="fa fa-angle-right"></i></a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Full Page Image Background Carousel Header End -->
+    <div class="breadcrumb_outer">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Our Products</li>
+            </ol>
+        </div>
+    </div>
+
+    <!--innre_page_section_Start -->
+    @RenderBody()
+    
+    <!--innre_page_section_Start_end -->
+    @Html.Partial("_ProductSection")
+    <!--free_shipping_section-->
+    <div class="free_shipping_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <i><img src="../content/images/icon/free_shipping.png" alt="FreeShipping"></i> <span>
+                        <strong>Free Shipping</strong><br>
+                        On Orders Over $99
+                    </span>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <i><img src="../content/images/icon/gift_icon.png" alt="FreeShipping"></i> <span>
+                        <strong>Extra Saving in Stores</strong><br>
+                        Give The Perfect Gift
+                    </span>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <i><img src="../content/images/icon/contct_icon.png" alt="FreeShipping"></i> <span>
+                        <strong>24/ 7 online support</strong><br>
+                        Anywhere worldwide
+                    </span>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+    </div>
+    <!--free_shipping_section_End-->
+    @Html.Partial("_Footer")
+    <!-- Go To Top Link -->
+    <a href="#" class="back-to-top">
+        <i class="fa  fa-angle-double-up"></i>
+    </a>
+    <!-- Go To Top Link -->
+    @Scripts.Render("~/bundles/index")
+    <script language="javascript">
+        var body = document.body,
+            overlay = document.querySelector('.overlay-div'),
+            overlayBtts = document.querySelectorAll('button[class$="overlay"]');
+
+        [].forEach.call(overlayBtts, function (btt) {
+
+            btt.addEventListener('click', function () {
+
+                /* Detect the button class name */
+                var overlayOpen = this.className === 'open-overlay';
+
+                /* Toggle the aria-hidden state on the overlay and the
+                   no-scroll class on the body */
+                overlay.setAttribute('aria-hidden', !overlayOpen);
+                body.classList.toggle('noscroll', overlayOpen);
+
+                /* On some mobile browser when the overlay was previously
+                   opened and scrolled, if you open it again it doesn't
+                   reset its scrollTop property after the fadeout */
+                setTimeout(function () {
+                    overlay.scrollTop = 0;
+                }, 1000)
+
+            }, false);
+
+        });
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            /* price_range*/
+            $(function () {
+                $("#price_range").ionRangeSlider({
+                    hide_min_max: true,
+                    keyboard: true,
+                    min: 0,
+                    max: 500000,
+                    from: 10000,
+                    to: 250000,
+                    type: 'double',
+                    step: 1,
+                    prefix: "",
+                    grid: true
+                });
+
+            });
+
+            $(function () {
+
+                $("#price_range2").ionRangeSlider({
+                    hide_min_max: true,
+                    keyboard: true,
+                    min: 0,
+                    max: 500000,
+                    from: 10000,
+                    to: 250000,
+                    type: 'double',
+                    step: 1,
+                    prefix: "",
+                    grid: true
+                });
+
+            });
+        });
+    </script>
+    @RenderSection("Scripts", false)
+</body>
+</html>

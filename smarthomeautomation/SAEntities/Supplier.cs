@@ -8,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace SAEntities
 {
-    public class Supplier
+    public class Supplier : CommonProperty
     {
-        [Key]
-        public long Id { get; set; }
         [Required]
         public string CompanyName { get; set; }
         [MaxLength(500)]
@@ -22,11 +20,6 @@ namespace SAEntities
         public string ContactNumber { get; set; }
         public string CompanyFaxNumber { get; set; }
         public string GSTNumber { get; set; }
-        public bool IsActive { get; set; }
-        public bool IsDeleted { get; set; }
-        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime CreatedDate { get; set; }
-        public DateTime? UpdatedDate { get; set; }
         public IList<Product> Products { get; set; }
         public IList<Customer> Customers { get; set; }
 

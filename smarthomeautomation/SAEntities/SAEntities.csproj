@@ -54,6 +54,8 @@
     <Compile Include="Brand.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="City.cs" />
+    <Compile Include="CalulatorCategory.cs" />
+    <Compile Include="CommonProperty.cs" />
     <Compile Include="Country.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="DalBrands.cs" />
@@ -73,6 +75,22 @@
     <Compile Include="Migrations\201902031256525_CategoryAddShowInCalculatorProperty.cs" />
     <Compile Include="Migrations\201902031256525_CategoryAddShowInCalculatorProperty.Designer.cs">
       <DependentUpon>201902031256525_CategoryAddShowInCalculatorProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903091452307_addnewcolumnforcalculatorname.cs" />
+    <Compile Include="Migrations\201903091452307_addnewcolumnforcalculatorname.Designer.cs">
+      <DependentUpon>201903091452307_addnewcolumnforcalculatorname.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903131646017_addcalculatorcategory.cs" />
+    <Compile Include="Migrations\201903131646017_addcalculatorcategory.Designer.cs">
+      <DependentUpon>201903131646017_addcalculatorcategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903132153002_removerelationcalculatorcategoryandcategory.cs" />
+    <Compile Include="Migrations\201903132153002_removerelationcalculatorcategoryandcategory.Designer.cs">
+      <DependentUpon>201903132153002_removerelationcalculatorcategoryandcategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903132228059_addnewcolumntocalculatorcategory.cs" />
+    <Compile Include="Migrations\201903132228059_addnewcolumntocalculatorcategory.Designer.cs">
+      <DependentUpon>201903132228059_addnewcolumntocalculatorcategory.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Order.cs" />
@@ -109,6 +127,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902031256525_CategoryAddShowInCalculatorProperty.resx">
       <DependentUpon>201902031256525_CategoryAddShowInCalculatorProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903091452307_addnewcolumnforcalculatorname.resx">
+      <DependentUpon>201903091452307_addnewcolumnforcalculatorname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903131646017_addcalculatorcategory.resx">
+      <DependentUpon>201903131646017_addcalculatorcategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903132153002_removerelationcalculatorcategoryandcategory.resx">
+      <DependentUpon>201903132153002_removerelationcalculatorcategoryandcategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903132228059_addnewcolumntocalculatorcategory.resx">
+      <DependentUpon>201903132228059_addnewcolumntocalculatorcategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

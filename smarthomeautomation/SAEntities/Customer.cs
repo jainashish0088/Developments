@@ -8,11 +8,8 @@ using System.Threading.Tasks;
 
 namespace SAEntities
 {
-    public class Customer
+    public class Customer : CommonProperty
     {
-        [Key]
-        public long Id { get; set; }
-        
         [MaxLength(200)]
         public string FirstName { get; set; }
         [MaxLength(200)]
@@ -28,12 +25,11 @@ namespace SAEntities
         [Required]
         [Index(IsUnique = true)]
         public string MobileNo { get; set; }
-        public bool IsActive { get; set; }
+        
         public bool IsMobileVerified { get; set; }
         public bool IsEmailVerified { get; set; }
         [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime CreatedDate { get; set; }
-        public DateTime? UpdatedDate { get; set; }
+        
         public IList<AddressBook> AddressBooks { get; set; }
         public Supplier Suppliers { get; set; }
         public UserType UserTypes { get; set; }

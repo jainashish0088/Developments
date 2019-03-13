@@ -24,6 +24,9 @@ namespace SAPO
         public long Id { get; set; }
         [MaxLength(1000)]
         public string ProductName { get; set; }
+
+        [MaxLength(1000)]
+        public string NameForCalculator { get; set; }
         [MaxLength(200)]
         public string ProductCode { get; set; }
         [MaxLength(2000)]

@@ -8,14 +8,12 @@ using System.Threading.Tasks;
 
 namespace SAEntities
 {
-    public class ShoppingCartDetail
+    public class ShoppingCartDetail : CommonProperty
     {
         public ShoppingCartDetail()
         {
             this.Products = new HashSet<Product>();
         }
-        [Key]
-        public long Id { get; set; }
         public long ShoppingCartId { get; set; }
         [MaxLength(1000)]
         public string ProductName { get; set; }
@@ -26,9 +24,6 @@ namespace SAEntities
         public decimal Discount { get; set; }
         public decimal Tax { get; set; }
         public bool IsCancelled { get; set; }
-        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime CreatedDate { get; set; }
-        public DateTime? UpdatedDate { get; set; }
         public ShoppingCart ShoppingCart { get; set; }
         public ICollection<Product> Products { get; set; }
     }
