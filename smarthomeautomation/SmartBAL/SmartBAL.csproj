@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Brands.cs" />
+    <Compile Include="Calculator.cs" />
+    <Compile Include="ICalculator.cs" />
     <Compile Include="Retrieve.cs" />
     <Compile Include="AddModifiers.cs" />
     <Compile Include="Categories.cs" />

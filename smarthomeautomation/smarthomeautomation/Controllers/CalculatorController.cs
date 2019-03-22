@@ -53,14 +53,17 @@ namespace smarthomeautomation.Controllers
         [HttpPost]
         public ActionResult Products(Models.CalculatorModel calculatorModel)
         {
-            var getProduct = new SAPO.GetProduct();
-            if (calculatorModel.Categories.Count > 0)
-                getProduct.CategoryName = calculatorModel.Categories[0].Name;
-            if (calculatorModel.Brands.Count > 0)
-                getProduct.BrandIds = calculatorModel.Brands;
-            Retrieve<SAPO.GetProduct, SAPO.ProductsPro> retrieve = new Retrieve<SAPO.GetProduct, SAPO.ProductsPro>(new Products());
-            List<SAPO.ProductsPro> products = new List<SAPO.ProductsPro>();
-            products = retrieve.ListRetreive(getProduct);
+            var retrieve = new Retrieve<SAPO.CalculatorCategory, SAPO.CalculatorCategory>(new Calculator());
+            var products = new List<SAPO.CalculatorCategory>();
+            products = retrieve.ListRetreive(new SAPO.CalculatorCategory());
+            //var getProduct = new SAPO.GetProduct();
+            //if (calculatorModel.Categories.Count > 0)
+            //    getProduct.CategoryName = calculatorModel.Categories[0].Name;
+            //if (calculatorModel.Brands.Count > 0)
+            //    getProduct.BrandIds = calculatorModel.Brands;
+            //Retrieve<SAPO.GetProduct, SAPO.ProductsPro> retrieve = new Retrieve<SAPO.GetProduct, SAPO.ProductsPro>(new Products());
+            //List<SAPO.ProductsPro> products = new List<SAPO.ProductsPro>();
+            //products = retrieve.ListRetreive(getProduct);
             return Json(products, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]

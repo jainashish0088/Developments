@@ -59,6 +59,7 @@
     <Compile Include="Country.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="DalBrands.cs" />
+    <Compile Include="DalCalculator.cs" />
     <Compile Include="DalProduct.cs" />
     <Compile Include="Migrations\201812010333101_smarthomeautomation.cs" />
     <Compile Include="Migrations\201812010333101_smarthomeautomation.Designer.cs">

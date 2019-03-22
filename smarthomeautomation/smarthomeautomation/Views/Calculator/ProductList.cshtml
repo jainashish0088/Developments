@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "ProductList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -18,19 +17,20 @@
                 <ul class="nav nav-tabs responsive" role="tablist">
                     @for (int cat = 0; cat < Model.Categories.Count; cat++)
                     {
-                        <li role="presentation" class="active"><a href="#@Model.Categories[cat].Id" aria-controls="Living_Room" role="tab" data-toggle="tab">@Model.Categories[cat].Name <span>(@Model.Categories[cat].Quantity)</span></a></li>
+                        var cls = cat == 0 ? "class=active" : "";
+                        <li role="presentation" @cls><a href="@("#cat"+Model.Categories[cat].Id)" onclick="LoadProducts('@Model.Categories[cat].Name','@Model.Categories[cat].Id')" aria-controls="@("cat"+Model.Categories[cat].Id)" role="tab" data-toggle="tab">@Model.Categories[cat].Name <span>(@Model.Categories[cat].Quantity)</span></a></li>
                     }
                 </ul>
 
                 <!-- Tab panes -->
-                <div class="tab-content responsive">
-                    <div class="row">
-                        <!--left_part-->
-                        <div class="col-xs-12 col-sm-7 col-md-8">
-                            <!--Living_Room tab-->
+                <div class="row">
+                    <!--left_part-->
+                    <div class="col-xs-12 col-sm-7 col-md-8">
+                        <!--Living_Room tab-->
+                        <div class="tab-content responsive hidden-xs">
                             @for (int cat = 0; cat < Model.Categories.Count; cat++)
                             {
-                                <div role="tabpanel" class="tab-pane fade in active" id="@("cat"+Model.Categories[cat].Id)" onclick="LoadProducts('@Model.Categories[cat].Name','@Model.Categories[cat].Id')">
+                                <div role="tabpanel" class="tab-pane fade in active" id="@("cat"+Model.Categories[cat].Id)">
                                     @*<div class="sorting_filter"> <a href="#" class="active">All</a> <a href="#">Lights On/Off</a> <a href="#">Lights Dimmer</a> <a href="#">RGB Control</a> <a href="#">Fan</a> <a href="#">AC On/Off</a> <a href="#">Curtain Roller Shutter</a> <a href="#">Motion Sensor</a> </div>*@
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -44,64 +44,64 @@
                                 </div>
                             }
                         </div>
-                        <!--left_part_end-->
-                        <!--right_part-->
-                        <div class="col-xs-12 col-sm-5 col-md-4" id="dvCalculatorcart">
-                            <div class="cart_box_outer">
-                                <div class="cart_container clearfix" id="dvCartProduct">
-                                    <div class="small-header">
-                                        <h2 class="section-title">Selected Products</h2>
-                                    </div>
-
-
-
-                                </div>
-                                <div class="total_box clearfix">
-                                    <ul class="clearfix">
-                                        <li>Total Payable</li>
-                                        <li><i class="fa fa-rupee"></i><span id="spnTotalPrice"></span> /-</li>
-                                    </ul>
-                                    <p>Prices are inclusive of all taxes</p>
-                                </div>
-                            </div>
-
-                            <div class="btn_box m-0">
-                                <a type="submit" href="javascript:void(0);" onclick="SendQuery()" class="blue_btn btn-block">Save And Next</a>
-                            </div>
-
-                            <!--totle_cart_value-->
-                            @*<div class="cart_box_outer">
-                                <div class="cart_container clearfix">
-                                    <div class="small-header">
-                                        <h2 class="section-title">Tatal Cart Value</h2>
-                                    </div>
-
-                                    <div class="section_cost_box clearfix">
-                                        <ul class="clearfix">
-                                            <li>Tatal Payable</li>
-                                            <li><i class="fa fa-rupee"></i> 20,999/-</li>
-                                        </ul>
-                                    </div>
-
-                                </div>
-                                <div class="total_box clearfix">
-                                    <ul class="clearfix">
-                                        <li>Tatal Payable</li>
-                                        <li><i class="fa fa-rupee"></i> 20,999/-</li>
-                                    </ul>
-                                    <p>Prices are inclusive of all taxes</p>
-                                </div>
-                            </div>*@
-                            <!--totle_cart_value_end-->
-                        </div>
-                        <div class="col-xs-12 col-sm-5 col-md-4" id="dvmessage" style="display:none">
-                            Thank You!
-                        </div>
-                        <!--right_part_end-->
                     </div>
-                    <!--Living_Room tab-->
+                    <!--left_part_end-->
+                    <!--right_part-->
+                    <div class="col-xs-12 col-sm-5 col-md-4" id="dvCalculatorcart">
+                        <div class="cart_box_outer">
+                            <div class="cart_container clearfix" id="dvCartProduct">
+                                <div class="small-header">
+                                    <h2 class="section-title">Selected Products</h2>
+                                </div>
 
+
+
+                            </div>
+                            <div class="total_box clearfix">
+                                <ul class="clearfix">
+                                    <li>Total Payable</li>
+                                    <li><i class="fa fa-rupee"></i><span id="spnTotalPrice"></span> /-</li>
+                                </ul>
+                                <p>Prices are inclusive of all taxes</p>
+                            </div>
+                        </div>
+
+                        <div class="btn_box m-0">
+                            <a type="submit" href="javascript:void(0);" onclick="SendQuery()" class="blue_btn btn-block">Save And Next</a>
+                        </div>
+
+                        <!--totle_cart_value-->
+                        @*<div class="cart_box_outer">
+                            <div class="cart_container clearfix">
+                            <div class="small-header">
+                            <h2 class="section-title">Tatal Cart Value</h2>
+                            </div>
+
+                            <div class="section_cost_box clearfix">
+                            <ul class="clearfix">
+                            <li>Tatal Payable</li>
+                            <li><i class="fa fa-rupee"></i> 20,999/-</li>
+                            </ul>
+                            </div>
+
+                            </div>
+                            <div class="total_box clearfix">
+                            <ul class="clearfix">
+                            <li>Tatal Payable</li>
+                            <li><i class="fa fa-rupee"></i> 20,999/-</li>
+                            </ul>
+                            <p>Prices are inclusive of all taxes</p>
+                            </div>
+                            </div>*@
+                        <!--totle_cart_value_end-->
+                    </div>
+                    <div class="col-xs-12 col-sm-5 col-md-4" id="dvmessage" style="display:none">
+                        Thank You!
+                    </div>
+                    <!--right_part_end-->
                 </div>
+                <!--Living_Room tab-->
+
             </div>
             <!--product_detail_tab_section-->
         </div>
@@ -114,9 +114,9 @@
     <script src="@Url.Content("~/Scripts/js/ion.rangeSlider.js")"></script>
     <script>
         var cart = [];
-    $(function () {
-        $(".tab-pane").click();
-    });
+    //$(function () {
+    //    $(".tab-pane").click();
+    //});
     function LoadProducts(catName, catId) {
         var calculatorModel = new Object();
         calculatorModel.Name = "";
@@ -149,10 +149,10 @@
                                         "</div>" +
                                     "</div>" +
                                     "<div class='product_detail_box'>" +
-                            "<h1><a href='javascript:void(0)' onclick='event.stopPropagation()' id='aProdName" + brand.Id + "'>" + brand.NameForCalculator+"</a></h1>" +
+                            "<h1><a href='javascript:void(0)' onclick='event.stopPropagation()' id='aProdName" + brand.Id + "'>" + brand.Name+"</a></h1>" +
                                     "</div>" +
                                     "<ul class='price_box row'>" +
-                            "<li> <i class='fa fa-rupee'></i> <span id='spnPrice" + brand.Id +"'>" + brand.SellingPrice+" /-</span> </li>" +
+                            //"<li> <i class='fa fa-rupee'></i> <span id='spnPrice" + brand.Id +"'>" + brand.SellingPrice+" /-</span> </li>" +
                             "<li class='text-center'><a href='javascript:void(0)' onclick=\"AddtoCart('" + brand.Id +"');event.stopPropagation();\"><img src=\"../Content/images/icon/add_to_calculator.png\"></a> </li>" +
                                     "</ul>" +
                                 "</div>" +

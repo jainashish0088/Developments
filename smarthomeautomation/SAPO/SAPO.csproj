@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Brands.cs" />
+    <Compile Include="CalculatorCategory.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="ProductsPro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
