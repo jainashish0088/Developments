@@ -29,25 +29,14 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'run'
+    command: 'restore'
+    feedsToUse: 'select'
+    vstsFeed: 'f9bad8ae-18d3-413c-9a70-b28b3ce2a255/c1e3aa35-6ecc-49c8-9496-acd77f90b82e'
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    nuGetFeedType: 'internal'
+    command: 'build'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'pack'
@@ -55,12 +44,10 @@ steps:
     versioningScheme: 'off'
 - task: DotNetCoreCLI@2
   inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    nuGetFeedType: 'internal'
+- task: DotNetCoreCLI@2
+  inputs:
     command: 'publish'
     publishWebProjects: true
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'test'
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'restore'
-    feedsToUse: 'select'
